@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">SASS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //Profile
+    <string name="profile_title">PROFILE</string>
+    <string name="edit">Edit</string>
+    <string name="first_name_hint">Your First Name</string>
+    <string name="middle_initial_hint">Your Middle Initial</string>
+    <string name="last_name_hint">Your Last Name</string>
+    <string name="course_hint">Your Course</string>
+    <string name="email_section_title">My email Address</string>
+    <string name="add_email_address">+Add Email Address</string>
+
+
 </resources>
