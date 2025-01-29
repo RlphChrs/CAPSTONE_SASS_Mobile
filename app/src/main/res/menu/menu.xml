@@ -1,0 +1,37 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- New Chat -->
+    <item
+        android:id="@+id/nav_new_chat"
+        android:icon="@drawable/add_icont"
+        android:title="+ New Chat" />
+
+    <!-- Previous Chats -->
+    <item
+        android:id="@+id/nav_chat1"
+        android:icon="@drawable/chat_icon"
+        android:title="AI Chat Tool Impact Writing" />
+
+
+
+    <!-- Divider -->
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_clear_conversations"
+            android:icon="@drawable/delete_icon"
+            android:title="Clear Conversations" />
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/notification_icon"
+            android:title="Notifications" />
+        <item
+            android:id="@+id/nav_updates"
+            android:icon="@drawable/information_icon"
+            android:title="Updates and FAQ" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout_icon"
+            android:title="Log out" />
+    </group>
+
+</menu>

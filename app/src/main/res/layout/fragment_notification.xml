@@ -52,7 +52,7 @@
             android:id="@+id/profile_icon"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_profile"
+            android:src="@drawable/profile_image"
             android:contentDescription="Profile Picture"
             android:background="@drawable/circle_background"
             android:padding="4dp" />
@@ -65,7 +65,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:clipToPadding="false"
-        tools:listitem="@layout/item_notification"
+        tools:listitem="@layout/notification_item"
         android:paddingHorizontal="16dp"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent" />
