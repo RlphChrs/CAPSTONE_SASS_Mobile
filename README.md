@@ -1,1 +1,1 @@
-Rule No.1 : Basta naay change i pull ayg kalimot
+Rule No.1 : Basta naay changes i pull ayg kalimot
