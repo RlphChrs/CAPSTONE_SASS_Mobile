@@ -43,6 +43,11 @@
         <string name="close_navigation">Close Navigation</string>
         <string name="profile_picture">Profile Picture</string>
 
+    //notificationItem
+
+        <string name="notification_title">Appointment Successful</string>
+        <string name="notification_date">Friday, 01/01/24, 10:30 PM</string>
+
 
 
 
