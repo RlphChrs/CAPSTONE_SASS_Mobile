@@ -4,14 +4,19 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     //Profile
-    <string name="profile_title">PROFILE</string>
-    <string name="edit">Edit</string>
-    <string name="first_name_hint">Your First Name</string>
-    <string name="middle_initial_hint">Your Middle Initial</string>
-    <string name="last_name_hint">Your Last Name</string>
-    <string name="course_hint">Your Course</string>
-    <string name="email_section_title">My email Address</string>
-    <string name="add_email_address">+Add Email Address</string>
 
+    <string name="profile">Profile</string>
+    <string name="menu_icon_desc">Menu Icon</string>
+    <string name="your_first_name">Your First Name</string>
+    <string name="your_middle_initial">Your Middle Initial</string>
+    <string name="your_last_name">Your Last Name</string>
+    <string name="your_course">Your Course</string>
+    <string name="my_email_address">My Email Address</string>
+    <string name="email_icon_desc">Email Icon</string>
+    <string name="add_email">+ Add Email Address</string>
+    <string name="default_user_id">20200069</string>
+    <string name="default_user_name">Ralph Christian Pilapil</string>
+    <string name="default_email">ralphc.pilapil@gmail.com</string>
+    <string name="email_date">1 month ago</string>
 
 </resources>
