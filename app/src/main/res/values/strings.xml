@@ -3,20 +3,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    //Profile
-    <string name="profile_title">PROFILE</string>
-    <string name="edit">Edit</string>
-    <string name="first_name_hint">Your First Name</string>
-    <string name="middle_initial_hint">Your Middle Initial</string>
-    <string name="last_name_hint">Your Last Name</string>
-    <string name="course_hint">Your Course</string>
-    <string name="email_section_title">My email Address</string>
-    <string name="add_email_address">+Add Email Address</string>
+
+
+    <!--Link input -->
     <string name="app_logo">App Logo</string>
     <string name="sass">SASS</string>
     <string name="enter_link">Enter link:</string>
     <string name="https_example_com_link">https://example.com/link</string>
     <string name="enter">ENTER</string>
+
+    <!--Log in -->
     <string name="sass1">SASS</string>
     <string name="enter_your_email_and_password_for_sign_in">Enter your email and password for sign in.</string>
     <string name="username_or_email">Username or email</string>
@@ -25,6 +21,8 @@
     <string name="sign_in">Sign in</string>
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="are_you_new_create_an_account">Are you new? Create an account</string>
+
+    <!-- activity main -->
     <string name="menu_icon">Menu Icon</string>
     <string name="profile_icon">Profile Icon</string>
     <string name="app_logo1">App Logo</string>
@@ -34,28 +32,28 @@
     <string name="ask_questions">Ask Questions</string>
     <string name="send_a_message">Send a message...</string>
     <string name="send_button">Send Button</string>
+
+    <!-- Registration -->
     <string name="create_account">Create Account</string>
     <string name="enter_your_name_email_and_password_for_sign_up">Enter your Name, Email and Password for sign up.</string>
     <string name="already_have_account">Already have account?</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
-    <string name="password1">Password</string>
+    <string name="passwordregistration">Password</string>
     <string name="repeat_password">Repeat Password</string>
     <string name="i_agree_to_terms_and_conditions">I agree to terms and conditions.</string>
     <string name="register">REGISTER</string>
     <string name="or_register_with">or register with</string>
     <string name="sign_in_with_google1">Sign in with Google</string>
+
+    <!-- Notification -->
     <string name="menu_icon1">Menu Icon</string>
     <string name="notifications">Notifications</string>
     <string name="mark_all_read">Mark all Read</string>
     <string name="profile_picture">Profile Picture</string>
-    <string name="new_chat">+ New Chat</string>
-    <string name="ai_chat_tool_impact_writing">AI Chat Tool Impact Writing</string>
-    <string name="clear_conversations">Clear Conversations</string>
-    <string name="notifications1">Notifications</string>
-    <string name="updates_and_faq">Updates and FAQ</string>
-    <string name="log_out">Log out</string>
+
+
 
 
 </resources>

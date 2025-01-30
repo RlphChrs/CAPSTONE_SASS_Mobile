@@ -96,7 +96,7 @@
         android:id="@+id/et_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/password1"
+        android:hint="@string/passwordregistration"
         android:background="@drawable/input_field_background_login"
         android:padding="12dp"
         android:inputType="textPassword"
