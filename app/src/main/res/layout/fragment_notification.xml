@@ -22,14 +22,14 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/menu_toggle"
-            android:contentDescription="Menu Icon" />
+            android:contentDescription="@string/menu_icon1" />
 
         <!-- Title -->
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Notifications"
+            android:text="@string/notifications"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
@@ -41,7 +41,7 @@
             android:id="@+id/tv_mark_all_read"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mark all Read"
+            android:text="@string/mark_all_read"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@android:color/holo_red_dark"
@@ -53,7 +53,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/profile_image"
-            android:contentDescription="Profile Picture"
+            android:contentDescription="@string/profile_picture"
             android:background="@drawable/circle_background"
             android:padding="4dp" />
     </LinearLayout>
