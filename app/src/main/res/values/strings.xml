@@ -23,7 +23,7 @@
     <string name="chat_icon_desc">Chat Icon</string>
     <string name="chat_title">Chat Title</string>
 
-    //Drawer
+    //navDrawer
 
 
         <string name="main_content">Main Content Here</string>
@@ -36,6 +36,15 @@
         <string name="notifications">Notifications</string>
         <string name="updates_faq">Updates and FAQ</string>
         <string name="logout">Log Out</string>
+
+
+
+    //navHeader
+        <string name="close_navigation">Close Navigation</string>
+        <string name="profile_picture">Profile Picture</string>
+
+
+
 
 
 </resources>
