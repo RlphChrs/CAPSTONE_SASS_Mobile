@@ -4,13 +4,13 @@
     <item
         android:id="@+id/nav_new_chat"
         android:icon="@drawable/add_icont"
-        android:title="+ New Chat" />
+        android:title="@string/new_chat" />
 
     <!-- Previous Chats -->
     <item
         android:id="@+id/nav_chat1"
         android:icon="@drawable/chat_icon"
-        android:title="AI Chat Tool Impact Writing" />
+        android:title="@string/ai_chat_tool_impact_writing" />
 
 
 
@@ -19,19 +19,19 @@
         <item
             android:id="@+id/nav_clear_conversations"
             android:icon="@drawable/delete_icon"
-            android:title="Clear Conversations" />
+            android:title="@string/clear_conversations" />
         <item
             android:id="@+id/nav_notifications"
             android:icon="@drawable/notification_icon"
-            android:title="Notifications" />
+            android:title="@string/notifications1" />
         <item
             android:id="@+id/nav_updates"
             android:icon="@drawable/information_icon"
-            android:title="Updates and FAQ" />
+            android:title="@string/updates_and_faq" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/logout_icon"
-            android:title="Log out" />
+            android:title="@string/log_out" />
     </group>
 
 </menu>
