@@ -19,8 +19,23 @@
     <string name="default_email">ralphc.pilapil@gmail.com</string>
     <string name="email_date">1 month ago</string>
 
+    //Conversation
     <string name="chat_icon_desc">Chat Icon</string>
     <string name="chat_title">Chat Title</string>
+
+    //Drawer
+
+
+        <string name="main_content">Main Content Here</string>
+        <string name="profile_picture_desc">User Profile Picture</string>
+        <string name="user_name">User Name</string>
+        <string name="user_role">User Role</string>
+        <string name="close_nav_desc">Close Navigation</string>
+        <string name="new_chat">+ New Chat</string>
+        <string name="clear_conversations">Clear Conversations</string>
+        <string name="notifications">Notifications</string>
+        <string name="updates_faq">Updates and FAQ</string>
+        <string name="logout">Log Out</string>
 
 
 </resources>

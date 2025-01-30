@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
     <!-- Main Content -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +19,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/menu_toggle"
-            android:contentDescription="Menu Icon"
+            android:contentDescription="@string/menu_icon_desc"
             android:layout_margin="16dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -27,12 +28,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main Content Here"
+            android:text="@string/main_content"
             android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@id/menu_icon"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="300dp"
@@ -61,7 +64,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/profile_image"
-                    android:contentDescription="Profile Picture"
+                    android:contentDescription="@string/profile_picture_desc"
                     android:background="@drawable/circle_background"
                     android:padding="4dp" />
 
@@ -77,7 +80,7 @@
                         android:id="@+id/user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Ralph Christian"
+                        android:text="@string/user_name"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@android:color/black" />
@@ -86,7 +89,7 @@
                         android:id="@+id/user_role"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="BSIT"
+                        android:text="@string/user_role"
                         android:textSize="14sp"
                         android:textColor="@android:color/darker_gray" />
                 </LinearLayout>
@@ -97,7 +100,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/close_button"
-                    android:contentDescription="Close Navigation"
+                    android:contentDescription="@string/close_nav_desc"
                     android:padding="8dp" />
             </LinearLayout>
 
@@ -106,7 +109,7 @@
                 android:id="@+id/btn_new_chat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+ New chat"
+                android:text="@string/new_chat"
                 android:backgroundTint="@color/black"
                 android:textColor="@android:color/white"
                 android:layout_marginHorizontal="16dp"
@@ -138,7 +141,7 @@
                     android:id="@+id/btn_clear_conversations"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Clear conversations"
+                    android:text="@string/clear_conversations"
                     android:textColor="@android:color/black"
                     android:background="?attr/selectableItemBackground"
                     android:padding="12dp"
@@ -150,7 +153,7 @@
                     android:id="@+id/btn_notifications"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Notifications"
+                    android:text="@string/notifications"
                     android:textColor="@android:color/black"
                     android:background="?attr/selectableItemBackground"
                     android:padding="12dp"
@@ -162,7 +165,7 @@
                     android:id="@+id/btn_updates"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Updates and FAQ"
+                    android:text="@string/updates_faq"
                     android:textColor="@android:color/black"
                     android:background="?attr/selectableItemBackground"
                     android:padding="12dp"
@@ -174,7 +177,7 @@
                     android:id="@+id/btn_logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Log out"
+                    android:text="@string/logout"
                     android:textColor="@android:color/black"
                     android:background="?attr/selectableItemBackground"
                     android:padding="12dp"
