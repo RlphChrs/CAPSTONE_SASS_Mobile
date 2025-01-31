@@ -22,7 +22,7 @@
             android:gravity="center_vertical">
 
             <!-- Menu Icon -->
-            <ImageView
+            <ImageButton
                 android:id="@+id/menu_icon"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
