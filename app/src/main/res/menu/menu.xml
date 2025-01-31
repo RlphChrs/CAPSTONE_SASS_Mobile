@@ -23,15 +23,15 @@
         <item
             android:id="@+id/nav_notifications"
             android:icon="@drawable/notification_icon"
-            android:title="@string/notifications1" />
+            android:title="@string/notificationsmenu" />
         <item
             android:id="@+id/nav_updates"
             android:icon="@drawable/information_icon"
-            android:title="@string/updates_and_faq" />
+            android:title="@string/updates_and_faqmenu" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/logout_icon"
-            android:title="@string/log_out" />
+            android:title="@string/log_outmenu" />
     </group>
 
 </menu>
