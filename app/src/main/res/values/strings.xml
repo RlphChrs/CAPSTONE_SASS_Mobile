@@ -61,5 +61,20 @@
     <string name="updates_and_faqmenu">Updates and FAQ</string>
     <string name="log_outmenu">Log out</string>
 
+    //Profile
+    <string name="profile">PROFILE</string>
+    <string name="edit">Edit</string>
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_middle_initial">Middle Initial</string>
+    <string name="hint_last_name">Last Name</string>
+    <string name="hint_course">Course</string>
+    <string name="my_email">Email Address</string>
+    <string name="add_email">+ Add Email Address</string>
+    <string name="content_desc_menu_icon">Menu Icon</string>
+    <string name="content_desc_profile_pic">Profile Picture</string>
+    <string name="user_id">20200069</string>
+    <string name="user_name">Ralph Christian Pilapil</string>
+    <string name="user_email">ralphc.pilapil@gmail.com</string>
+
 
 </resources>

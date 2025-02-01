@@ -27,7 +27,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/menu_toggle"
-                android:contentDescription="Menu Icon" />
+                android:contentDescription="@string/content_desc_menu_icon" />
 
             <!-- Profile Title -->
             <TextView
@@ -35,7 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="PROFILE"
+                android:text="@string/profile"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -56,7 +56,7 @@
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:src="@drawable/profile_image"
-                android:contentDescription="Profile Picture"
+                android:contentDescription="@string/content_desc_profile_pic"
                 android:padding="4dp" />
 
             <!-- User Info -->
@@ -71,7 +71,7 @@
                     android:id="@+id/tv_user_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="20200069"
+                    android:text="@string/user_id"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/black" />
@@ -80,7 +80,7 @@
                     android:id="@+id/tv_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ralph Christian Pilapil"
+                    android:text="@string/user_name"
                     android:textSize="14sp"
                     android:textColor="@android:color/darker_gray" />
 
@@ -88,7 +88,7 @@
                     android:id="@+id/tv_user_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ralphc.pilapil@gmail.com"
+                    android:text="@string/user_email"
                     android:textSize="14sp"
                     android:textColor="@android:color/darker_gray" />
             </LinearLayout>
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/primaryColor"
-                android:text="Edit"
+                android:text="@string/edit"
                 android:textColor="@android:color/white"
                 android:layout_marginStart="8dp" />
         </LinearLayout>
@@ -109,7 +109,8 @@
             android:id="@+id/et_first_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your First Name"
+            android:hint="@string/hint_first_name"
+            android:inputType="textPersonName"
             android:layout_marginTop="16dp"
             android:background="@drawable/input_field_background"
             android:padding="12dp" />
@@ -118,7 +119,8 @@
             android:id="@+id/et_middle_initial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your Middle Initial"
+            android:hint="@string/hint_middle_initial"
+            android:inputType="text"
             android:layout_marginTop="8dp"
             android:background="@drawable/input_field_background"
             android:padding="12dp" />
@@ -127,7 +129,8 @@
             android:id="@+id/et_last_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your Last Name"
+            android:hint="@string/hint_last_name"
+            android:inputType="textPersonName"
             android:layout_marginTop="8dp"
             android:background="@drawable/input_field_background"
             android:padding="12dp" />
@@ -136,7 +139,8 @@
             android:id="@+id/et_course"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your Course"
+            android:hint="@string/hint_course"
+            android:inputType="text"
             android:layout_marginTop="8dp"
             android:background="@drawable/input_field_background"
             android:padding="12dp" />
@@ -145,16 +149,16 @@
         <Spinner
             android:id="@+id/spinner_year"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_height="48dp"
+            android:padding="8dp"
             android:background="@drawable/input_field_background" />
 
         <!-- Role Dropdown -->
         <Spinner
             android:id="@+id/spinner_role"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_height="48dp"
+            android:padding="8dp"
             android:background="@drawable/input_field_background" />
 
         <!-- Email Address Section -->
@@ -162,55 +166,17 @@
             android:id="@+id/tv_email_section_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="My email Address"
+            android:text="@string/my_email"
             android:textSize="14sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
             android:textColor="@android:color/black" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
-
-            <ImageView
-                android:id="@+id/email_icon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/profile_image"
-                android:contentDescription="Email Icon" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp">
-
-                <TextView
-                    android:id="@+id/tv_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ralphc.pilapil@gmail.com"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/black" />
-
-                <TextView
-                    android:id="@+id/tv_email_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1 month ago"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/darker_gray" />
-            </LinearLayout>
-        </LinearLayout>
-
         <Button
             android:id="@+id/btn_add_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+Add Email Address"
+            android:text="@string/add_email"
             android:backgroundTint="@color/lightBlue"
             android:textColor="@color/primaryColor"
             android:layout_marginTop="16dp" />
