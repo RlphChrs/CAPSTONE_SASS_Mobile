@@ -105,6 +105,10 @@
         <string name="user_name_placeholder">Your Name</string>
         <string name="user_role_placeholder">Your Role</string>
 
+    //notification_item
+        <string name="appointment_success">Appointment Successful</string>
+        <string name="notification_date_placeholder">Friday, 01/01/24, 10:30 PM</string>
+
 
 
 
