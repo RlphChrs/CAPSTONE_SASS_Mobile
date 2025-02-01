@@ -76,5 +76,9 @@
     <string name="user_name">Ralph Christian Pilapil</string>
     <string name="user_email">ralphc.pilapil@gmail.com</string>
 
+    //itemConversation
+    <string name="content_desc_chat_icon">Chat Icon</string>
+    <string name="chat_title">Chat Title</string>
+
 
 </resources>
