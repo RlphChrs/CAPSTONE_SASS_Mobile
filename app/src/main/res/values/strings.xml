@@ -80,5 +80,28 @@
     <string name="content_desc_chat_icon">Chat Icon</string>
     <string name="chat_title">Chat Title</string>
 
+    //nav_drawer
+        <!-- General UI Strings -->
+        <string name="menu_icon_description">Open navigation menu</string>
+        <string name="main_content_placeholder">Main Content Here</string>
+
+        <!-- Navigation Header -->
+        <string name="profile_picture_description">User profile picture</string>
+        <string name="user_role">BSIT</string>
+        <string name="close_nav_description">Close navigation menu</string>
+
+        <!-- Navigation Menu Buttons -->
+        <string name="updates_faq">Updates and FAQ</string>
+        <string name="logout">Log Out</string>
+
+        <!-- Accessibility Descriptions -->
+        <string name="delete_icon_description">Delete conversation history</string>
+        <string name="notification_icon_description">Manage notifications</string>
+        <string name="info_icon_description">View updates and FAQ</string>
+        <string name="logout_icon_description">Log out of the application</string>
+
+
+
+
 
 </resources>
