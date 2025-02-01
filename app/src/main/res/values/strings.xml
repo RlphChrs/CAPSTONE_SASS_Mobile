@@ -100,6 +100,11 @@
         <string name="info_icon_description">View updates and FAQ</string>
         <string name="logout_icon_description">Log out of the application</string>
 
+    //nav_header
+        <string name="close_nav">Close Navigation</string>
+        <string name="user_name_placeholder">Your Name</string>
+        <string name="user_role_placeholder">Your Role</string>
+
 
 
 
