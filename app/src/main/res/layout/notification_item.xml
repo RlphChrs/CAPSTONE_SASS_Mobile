@@ -12,23 +12,25 @@
         android:id="@+id/tv_notification_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Appointment Successful"
+        android:text="@string/appointment_success"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/tv_notification_date" />
+        app:layout_constraintEnd_toStartOf="@id/tv_notification_date"
+        android:layout_marginEnd="8dp" />
 
     <!-- Notification Date -->
     <TextView
         android:id="@+id/tv_notification_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Friday, 01/01/24, 10:30 PM"
+        android:text="@string/notification_date_placeholder"
         android:textSize="12sp"
         android:textColor="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

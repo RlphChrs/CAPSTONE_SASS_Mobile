@@ -14,7 +14,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/chat_icon"
-        android:contentDescription="Chat Icon"
+        android:contentDescription="@string/content_desc_chat_icon"
         android:layout_marginEnd="12dp" />
 
     <!-- Chat Title -->
@@ -22,7 +22,7 @@
         android:id="@+id/tv_conversation_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chat Title"
+        android:text="@string/chat_title"
         android:textSize="14sp"
         android:textColor="@android:color/black"
         android:maxLines="1"
