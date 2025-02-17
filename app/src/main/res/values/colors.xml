@@ -9,5 +9,6 @@
         <color name="primaryColor">#1A73E8</color> <!-- Main app color -->
         <color name="lightBlue">#E3F2FD</color> <!-- Light background for buttons -->
         <color name="darker_gray">#757575</color> <!-- Gray for secondary text -->
+    <color name="gray">#8691a2</color>
 
 </resources>

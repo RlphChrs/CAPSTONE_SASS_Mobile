@@ -4,7 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-
     <!--Link input -->
     <string name="app_logo">App Logo</string>
     <string name="sass">SASS</string>
@@ -81,36 +80,47 @@
     <string name="chat_title">Chat Title</string>
 
     //nav_drawer
-        <!-- General UI Strings -->
-        <string name="menu_icon_description">Open navigation menu</string>
-        <string name="main_content_placeholder">Main Content Here</string>
+    <!-- General UI Strings -->
+    <string name="menu_icon_description">Open navigation menu</string>
+    <string name="main_content_placeholder">Main Content Here</string>
 
-        <!-- Navigation Header -->
-        <string name="profile_picture_description">User profile picture</string>
-        <string name="user_role">BSIT</string>
-        <string name="close_nav_description">Close navigation menu</string>
+    <!-- Navigation Header -->
+    <string name="profile_picture_description">User profile picture</string>
+    <string name="user_role">BSIT</string>
+    <string name="close_nav_description">Close navigation menu</string>
 
-        <!-- Navigation Menu Buttons -->
-        <string name="updates_faq">Updates and FAQ</string>
-        <string name="logout">Log Out</string>
+    <!-- Navigation Menu Buttons -->
+    <string name="updates_faq">Updates and FAQ</string>
+    <string name="logout">Log Out</string>
 
-        <!-- Accessibility Descriptions -->
-        <string name="delete_icon_description">Delete conversation history</string>
-        <string name="notification_icon_description">Manage notifications</string>
-        <string name="info_icon_description">View updates and FAQ</string>
-        <string name="logout_icon_description">Log out of the application</string>
+    <!-- Accessibility Descriptions -->
+    <string name="delete_icon_description">Delete conversation history</string>
+    <string name="notification_icon_description">Manage notifications</string>
+    <string name="info_icon_description">View updates and FAQ</string>
+    <string name="logout_icon_description">Log out of the application</string>
 
     //nav_header
-        <string name="close_nav">Close Navigation</string>
-        <string name="user_name_placeholder">Your Name</string>
-        <string name="user_role_placeholder">Your Role</string>
+    <string name="close_nav">Close Navigation</string>
+    <string name="user_name_placeholder">Your Name</string>
+    <string name="user_role_placeholder">Your Role</string>
 
     //notification_item
-        <string name="appointment_success">Appointment Successful</string>
-        <string name="notification_date_placeholder">Friday, 01/01/24, 10:30 PM</string>
-
-
-
+    <string name="appointment_success">Appointment Successful</string>
+    <string name="notification_date_placeholder">Friday, 01/01/24, 10:30 PM</string>
+    <string name="user_profile">User Profile</string>
+    <string name="sass_bot">SASS Bot</string>
+    <string name="sass_bot1">SASS Bot</string>
+    <string name="i_want_to_report_someone">I want to report someone</string>
+    <string name="sure_i_m_happy_to_help_you_with_that">Sure, I’m happy to help you with that.</string>
+    <string name="just_please_fill_up_this_form">Just please fill up this form</string>
+    <string name="fill_up_the_form_and_submit_after_filling_up_hope_you_have_a_good_day">Fill up the form and submit after filling up. Hope you have a good day.</string>
+    <string name="report_successfully_filed">Report successfully filed.</string>
+    <string name="when_did_this_happen">When did this happen?</string>
+    <string name="name_of_offender">Name of offender</string>
+    <string name="submit_report">submit_report</string>
+    <string name="reason">Reason</string>
+    <string name="report1">Report</string>
+    <string name="calendar">Calendar</string>
 
 
 </resources>

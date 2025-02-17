@@ -1,0 +1,24 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Rounded white background for the input field -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white"/>
+            <corners android:radius="24dp"/>
+            <stroke
+                android:width="1dp"
+                android:color="@android:color/darker_gray"/>
+        </shape>
+    </item>
+
+    <!-- Dark blue rounded button for the send icon -->
+    <item
+        android:width="50dp"
+        android:height="50dp"
+        android:gravity="end|center_vertical">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/darkBlue"/>
+            <corners android:topRightRadius="24dp" android:bottomRightRadius="24dp"/>
+        </shape>
+    </item>
+</layer-list>

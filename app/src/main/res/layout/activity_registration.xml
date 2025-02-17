@@ -179,7 +179,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:icon="@drawable/google"
-        android:iconPadding="8dp"
+
         android:text="@string/sign_in_with_google1"
         android:backgroundTint="@color/white"
         android:textColor="@color/darkText"
