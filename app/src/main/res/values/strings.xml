@@ -122,5 +122,22 @@
     <string name="report1">Report</string>
     <string name="calendar">Calendar</string>
 
+    //Report
+
+    <!-- Instruction Text -->
+    <string name="instruction_text">Please fill out the form below to report your concern.</string>
+
+    <!-- Checkbox Labels -->
+    <string name="checkbox_understand">I understand the instructions</string>
+    <string name="checkbox_confirm">I confirm that the information provided is accurate</string>
+
+    <!-- Input Field Hints -->
+    <string name="input_name_hint">Enter the name of the person involved</string>
+    <string name="input_id_hint">Enter the ID number of the person involved</string>
+    <string name="input_reason_hint">Enter the reason for your report</string>
+    <string name="input_description_hint">Provide a detailed description</string>
+    <string name="button_done">DONE</string>
+
+
 
 </resources>
