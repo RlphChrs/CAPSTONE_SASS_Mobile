@@ -138,6 +138,9 @@
     <string name="input_description_hint">Provide a detailed description</string>
     <string name="button_done">DONE</string>
 
+    //Calendar
+    <string name="select_date">Select a date to see available schedules</string>
+    <string name="bookAppointment">Book Appointment</string>
 
 
 </resources>
