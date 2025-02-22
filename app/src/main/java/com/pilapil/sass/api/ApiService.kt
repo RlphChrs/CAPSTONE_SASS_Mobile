@@ -16,7 +16,7 @@ interface ApiService {
     suspend fun registerStudent(@Body student: Student): ApiResponse
 
     // Student Login Endpoint
-    @POST("/api/students/login/student")
+    @POST("/api/students/login")
     suspend fun loginStudent(@Body loginRequest: LoginRequest): LoginResponse
 
     companion object {
