@@ -24,7 +24,7 @@
             android:name=".view.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.AppointmentBooking"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
