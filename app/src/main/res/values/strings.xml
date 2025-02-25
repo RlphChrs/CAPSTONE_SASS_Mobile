@@ -51,12 +51,13 @@
     <string name="notifications">Notifications</string>
     <string name="mark_all_read">Mark all Read</string>
     <string name="profile_picture">Profile Picture</string>
+    <string name="notificationsmenu">Notifications</string>
 
     <!-- Menu -->
     <string name="new_chat">+ New Chat</string>
     <string name="ai_chat_tool_impact_writing">AI Chat Tool Impact Writing</string>
     <string name="clear_conversations">Clear Conversations</string>
-    <string name="notificationsmenu">Notifications</string>
+    <string name="notificationsMenu">Notifications</string>
     <string name="updates_and_faqmenu">Updates and FAQ</string>
     <string name="log_outmenu">Log out</string>
 
@@ -141,6 +142,22 @@
     //Calendar
     <string name="select_date">Select a date to see available schedules</string>
     <string name="bookAppointment">Book Appointment</string>
+
+    //AppointmentBooking
+
+    <!-- Titles & Labels -->
+    <string name="pick_date_time">Pick a Date and Time</string>
+    <string name="choose_date">Choose a Date</string>
+    <string name="selectDate">Select Date</string>
+    <string name="choose_time">Choose a Time</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="description">Description</string>
+    <string name="add">Add</string>
+
+    <!-- Time Periods -->
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
 
 
 </resources>
