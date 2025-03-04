@@ -162,4 +162,5 @@
         app:menu="@menu/menu"
         app:headerLayout="@layout/nav_header"
         tools:ignore="VisualLintBounds" />
+
 </androidx.drawerlayout.widget.DrawerLayout>
