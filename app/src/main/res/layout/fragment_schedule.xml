@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="16dp"
+    tools:context=".view.ScheduleActivity">
+
+    <!-- Header with Back Button, Date, and Profile Image -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Menu Icon (Left Side) -->
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/menu_toggle"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/menu_icon"
+            android:layout_centerVertical="true"/>
+
+        <!-- Back Button (Next to Date) -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/back_logo"
+            android:contentDescription="@string/back_logo"
+            android:layout_toEndOf="@id/menuIcon"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp" />
+
+        <!-- Date Text (Centered) -->
+        <TextView
+            android:id="@+id/dateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_text"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@id/backButton"
+            android:layout_toStartOf="@id/profileImage"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- Profile Image (Right Side) -->
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/profile_image"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/profile_picture"
+            android:background="@drawable/circle_background"/>
+    </RelativeLayout>
+
+    <!-- Available Time Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/available_time"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingTop="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/lightBlue"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Booked Schedule Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/booked_schedule"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <!-- RecyclerView for Schedule -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+</LinearLayout>

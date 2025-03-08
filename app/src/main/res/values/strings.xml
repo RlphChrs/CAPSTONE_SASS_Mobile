@@ -29,7 +29,7 @@
     <string name="report">Report</string>
     <string name="book_appointment">Book Appointment</string>
     <string name="ask_questions">Ask Questions</string>
-    <string name="send_a_message">Send a message...</string>
+    <string name="send_a_message">Send a message</string>
     <string name="send_button">Send Button</string>
 
     <!-- Registration -->
@@ -158,6 +158,24 @@
     <!-- Time Periods -->
     <string name="am">AM</string>
     <string name="pm">PM</string>
+
+    //Schedules
+
+
+        <!-- Header -->
+        <string name="date_text">Today February 28, 2025</string>
+         <string name="back_logo">Back Logo</string>
+
+        <!-- Sections -->
+        <string name="available_time">Available Time</string>
+        <string name="booked_schedule">Booked Schedule</string>
+
+        <!-- Content -->
+        <string name="meeting_title">Meeting with chairman</string>
+        <string name="meeting_time">8:00 - 8:30 AM</string>
+
+
+
 
 
 </resources>
