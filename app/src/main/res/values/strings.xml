@@ -31,6 +31,12 @@
     <string name="ask_questions">Ask Questions</string>
     <string name="send_a_message">Send a message</string>
     <string name="send_button">Send Button</string>
+    <string name="btn_report">Report</string>
+    <string name="btn_book_appointment">Book Appointment</string>
+    <string name="btn_ask_questions">Ask Questions</string>
+    <string name="report_description">Report unwanted behavior</string>
+    <string name="book_appointment_description">Book an appointment for SAO</string>
+    <string name="ask_questions_description">Regarding school</string>
 
     <!-- Registration -->
     <string name="create_account">Create Account</string>
@@ -145,37 +151,56 @@
 
     //AppointmentBooking
 
-    <!-- Titles & Labels -->
+    <!-- Date Picker -->
     <string name="pick_date_time">Pick a Date and Time</string>
-    <string name="choose_date">Choose a Date</string>
-    <string name="selectDate">Select Date</string>
-    <string name="choose_time">Choose a Time</string>
+
+
+    <!-- Time Selection -->
+    <string name="choose_time">Choose Time</string>
     <string name="from">From</string>
     <string name="to">To</string>
-    <string name="description">Description</string>
-    <string name="add">Add</string>
-
-    <!-- Time Periods -->
+    <string name="hour_hint">HH</string>
+    <string name="minute_hint">MM</string>
     <string name="am">AM</string>
     <string name="pm">PM</string>
 
+    <!-- Description Field -->
+    <string name="description">Description</string>
+    <string name="add_button">ADD</string>
+
+    <!-- Selected Date & Time -->
+    <string name="date_time_label">Selected Date and Time</string>
+    <string name="select_date_time">Select Date and Time</string>
+    <string name="time_placeholder">--</string>
+    <string name="colon">:</string>
+    <string name="zero">00</string>
+
+
     //Schedules
 
+    <!-- Header -->
+    <string name="date_text">Today February 28, 2025</string>
+    <string name="back_logo">Back Logo</string>
 
-        <!-- Header -->
-        <string name="date_text">Today February 28, 2025</string>
-         <string name="back_logo">Back Logo</string>
+    <!-- Sections -->
+    <string name="available_time">Available Time</string>
+    <string name="booked_schedule">Booked Schedule</string>
 
-        <!-- Sections -->
-        <string name="available_time">Available Time</string>
-        <string name="booked_schedule">Booked Schedule</string>
-
-        <!-- Content -->
-        <string name="meeting_title">Meeting with chairman</string>
-        <string name="meeting_time">8:00 - 8:30 AM</string>
-
+    <!-- Content -->
+    <string name="meeting_title">Meeting with chairman</string>
+    <string name="meeting_time">8:00 - 8:30 AM</string>
 
 
+    //Conversation
+    <string name="menu">Menu</string>
+    <string name="you">You</string>
+    <string name="user_message">Your message here.</string>
+    <string name="bot_name">SASS</string>
+    <string name="bot_message">Bot response here.</string>
+    <string name="copy">Copy</string>
+    <string name="refresh">Refresh</string>
+    <string name="dislike">Dislike</string>
+    <string name="warning_message">Your messages may be used to improve our AI.</string>
 
 
 </resources>
