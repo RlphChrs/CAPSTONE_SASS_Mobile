@@ -7,7 +7,7 @@
     <!--Link input -->
     <string name="app_logo">App Logo</string>
     <string name="sass">SASS</string>
-    <string name="enter_link">Enter link:</string>
+    <string name="enter_link">School Name</string>
     <string name="https_example_com_link">https://example.com/link</string>
     <string name="enter">ENTER</string>
 

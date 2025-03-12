@@ -76,58 +76,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Interaction Options -->
-        <LinearLayout
-            android:id="@+id/interaction_options"
+        <!-- for chat items -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatRecyclerView"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_height="0dp"
             android:layout_marginTop="16dp"
+            android:paddingHorizontal="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/tv_terms_conditions"
+            app:layout_constraintBottom_toTopOf="@id/message_input_section"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <!-- Report Option -->
-            <Button
-                android:id="@+id/btn_report"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/report"
-                android:layout_margin="8dp"
-                android:backgroundTint="@color/white"
-                android:textColor="@android:color/black"
-                tools:ignore="VisualLintButtonSize" />
-
-            <!-- Book Appointment Option -->
-            <Button
-                android:id="@+id/btn_book_appointment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/book_appointment"
-                android:layout_margin="8dp"
-                android:backgroundTint="@color/white"
-                android:textColor="@android:color/black"
-                tools:ignore="VisualLintButtonSize" />
-
-            <!-- Ask Questions Option -->
-            <Button
-                android:id="@+id/btn_ask_questions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/ask_questions"
-                android:layout_margin="8dp"
-                android:backgroundTint="@color/white"
-                android:textColor="@android:color/black"
-                tools:ignore="VisualLintButtonSize" />
-        </LinearLayout>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <!-- Message Input -->
         <LinearLayout
             android:id="@+id/message_input_section"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:orientation="horizontal"
             android:padding="8dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -135,7 +105,7 @@
             <EditText
                 android:id="@+id/et_message"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:hint="@string/send_a_message"
                 android:layout_weight="1"
                 android:background="@drawable/message_input_background"
@@ -145,12 +115,14 @@
 
             <ImageButton
                 android:id="@+id/btn_send_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/send_message_icon"
                 android:contentDescription="@string/send_button"
+                android:scaleType="centerInside"
                 tools:ignore="RedundantDescriptionCheck" />
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Navigation Drawer -->
