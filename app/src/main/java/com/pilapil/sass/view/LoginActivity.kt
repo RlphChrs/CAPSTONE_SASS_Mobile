@@ -8,7 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.pilapil.sass.MainActivity
 import com.pilapil.sass.R
 import com.pilapil.sass.api.ApiService
 import com.pilapil.sass.repository.StudentAuthRepository
@@ -51,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
                 onSuccess = { token ->
                     sessionManager.saveAuthToken(token)
                     Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, EnterSchoolActivity::class.java))
                     finish()
                 },
                 onError = { error ->

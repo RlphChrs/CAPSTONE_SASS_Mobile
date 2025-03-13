@@ -78,6 +78,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/logo_image" />
 
+<<<<<<< HEAD
         <!-- Interaction Options -->
 
         <!-- Message Input Section -->
@@ -186,15 +187,35 @@
             </LinearLayout>
 
         </LinearLayout>
+=======
+        <!-- for chat items -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tv_terms_conditions"
+            app:layout_constraintBottom_toTopOf="@id/message_input_section"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+>>>>>>> d30c89a804d1f98c1a30bef7f7b3924ff921d15d
 
         <LinearLayout
             android:id="@+id/message_input_section"
             android:layout_width="0dp"
+<<<<<<< HEAD
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@drawable/bordered_message"
+=======
+            android:layout_height="60dp"
+>>>>>>> d30c89a804d1f98c1a30bef7f7b3924ff921d15d
             android:orientation="horizontal"
             android:padding="8dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -203,7 +224,12 @@
             <EditText
                 android:id="@+id/et_message"
                 android:layout_width="0dp"
+<<<<<<< HEAD
                 android:layout_height="48dp"
+=======
+                android:layout_height="match_parent"
+                android:hint="@string/send_a_message"
+>>>>>>> d30c89a804d1f98c1a30bef7f7b3924ff921d15d
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:hint="@string/send_a_message"
@@ -215,6 +241,7 @@
             <!-- Send Button -->
             <ImageButton
                 android:id="@+id/btn_send_message"
+<<<<<<< HEAD
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
@@ -225,6 +252,16 @@
         </LinearLayout>
 
 
+=======
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/send_message_icon"
+                android:contentDescription="@string/send_button"
+                android:scaleType="centerInside"
+                tools:ignore="RedundantDescriptionCheck" />
+        </LinearLayout>
+
+>>>>>>> d30c89a804d1f98c1a30bef7f7b3924ff921d15d
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
