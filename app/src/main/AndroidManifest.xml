@@ -17,13 +17,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SASS"
         tools:targetApi="34">
+
+
         <activity
             android:name=".view.EnterSchoolActivity"
             android:exported="false" />
         <activity
             android:name=".view.RegistrationActivity"
             android:exported="false" />
-
 
         <activity
             android:name=".view.ScheduleActivity"
@@ -33,11 +34,9 @@
             android:name=".view.AppointmentBooking"
             android:exported="false"/>
 
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,8 +44,6 @@
             </intent-filter>
 
         </activity>
-
-
 
 
 

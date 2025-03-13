@@ -125,18 +125,20 @@
         tools:ignore="Autofill,VisualLintTextFieldSize" />
 
     <!-- Terms and Conditions Checkbox -->
+
+    <!-- Register Button -->
     <CheckBox
         android:id="@+id/cb_terms_conditions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="@string/i_agree_to_terms_and_conditions"
         android:textColor="@android:color/white"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/et_repeat_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/et_repeat_password" />
 
-    <!-- Register Button -->
     <Button
         android:id="@+id/btn_register"
         android:layout_width="0dp"

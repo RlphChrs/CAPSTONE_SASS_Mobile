@@ -10,8 +10,8 @@ import com.pilapil.sass.R
 import com.pilapil.sass.api.ApiService
 import com.pilapil.sass.model.Student
 import com.pilapil.sass.repository.StudentAuthRepository
-import com.pilapil.sass.viewModel.StudentAuthViewModel
-import com.pilapil.sass.viewModel.ViewModelFactory
+import com.pilapil.sass.viewmodel.StudentAuthViewModel
+import com.pilapil.sass.viewmodel.ViewModelFactory
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -65,12 +65,11 @@ class RegistrationActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // ✅ Ensure `repeatPassword` is included in the request
             val student = Student(
                 userId = "stu${System.currentTimeMillis()}",
                 email = email,
                 password = password,
-                repeatPassword = repeatPassword, // ✅ Now included
+                repeatPassword = repeatPassword,
                 firstName = firstName,
                 lastName = lastName,
                 role = "Student",
