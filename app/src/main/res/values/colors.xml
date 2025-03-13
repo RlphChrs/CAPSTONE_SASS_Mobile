@@ -10,8 +10,12 @@
     <color name="lightBlue">#E3F2FD</color> <!-- Light background for buttons -->
     <color name="darker_gray">#757575</color> <!-- Gray for secondary text -->
     <color name="gray">#8691a2</color>
+<<<<<<< HEAD
+    <color name="user_message_background">#E0F7FA</color> <!-- Light Blue -->
+=======
     <color name="blueGray">#7393B3</color>
     <color name="pastelBlue">#A7C7E7</color>
+>>>>>>> d30c89a804d1f98c1a30bef7f7b3924ff921d15d
 
 
 </resources>
