@@ -177,29 +177,30 @@
 
 
     //Schedules
-
-    <!-- Header -->
-    <string name="date_text">Today February 28, 2025</string>
-    <string name="back_logo">Back Logo</string>
-
-    <!-- Sections -->
-    <string name="available_time">Available Time</string>
-    <string name="booked_schedule">Booked Schedule</string>
-
     <!-- Content -->
     <string name="meeting_title">Meeting with chairman</string>
-    <string name="meeting_time">8:00 - 8:30 AM</string>
+    <string name="meeting_time">8:00 to 8:30 AM</string>
+
+    <!-- Fragment Schedule Text -->
+
+    <string name="back_logo">Back Button</string>
+    <string name="date_text">Select Date</string>
+    <string name="available_time">Available Time</string>
+    <string name="booked_schedule">Booked Schedule</string>
+    <string name="time_start">8:00 AM</string>
+    <string name="time_end">8:30 AM</string>
 
 
     //Conversation
     <string name="menu">Menu</string>
     <string name="you">You</string>
-    <string name="user_message">Your message here.</string>
     <string name="bot_name">SASS</string>
     <string name="bot_message">Bot response here.</string>
+    <string name="user_message">User response here.</string>
     <string name="copy">Copy</string>
     <string name="refresh">Refresh</string>
     <string name="dislike">Dislike</string>
+    <string name="bot_icon">Bot Icon</string>
     <string name="warning_message">Your messages may be used to improve our AI.</string>
 
 

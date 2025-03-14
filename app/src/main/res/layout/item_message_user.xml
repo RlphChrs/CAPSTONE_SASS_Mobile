@@ -6,16 +6,34 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
+    <!-- User Message -->
     <TextView
         android:id="@+id/message_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_message_user"
+        android:text="@string/user_message"
         android:padding="12dp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/user_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="15dp"/> <!-- Added space between text & image -->
+
+    <!-- User Image (Profile Picture) -->
+    <ImageView
+        android:id="@+id/user_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/user_profile"
+        android:contentDescription="@string/user_profile"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="10dp"/> <!-- Ensures spacing on the left -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
