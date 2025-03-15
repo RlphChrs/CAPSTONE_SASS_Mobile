@@ -2,7 +2,6 @@ package com.pilapil.sass
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -15,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pilapil.sass.adapter.MessageAdapter
 import com.pilapil.sass.model.ChatMessage
-import com.pilapil.sass.viewmodel.ChatViewModel
-import com.pilapil.sass.viewmodel.EnterSchoolViewModel
+import com.pilapil.sass.viewModel.ChatViewModel
+import com.pilapil.sass.viewModel.EnterSchoolViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

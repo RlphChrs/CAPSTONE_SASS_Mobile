@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.pilapil.sass.MainActivity
 import com.pilapil.sass.R
-import com.pilapil.sass.viewmodel.EnterSchoolViewModel
+import com.pilapil.sass.viewModel.EnterSchoolViewModel
 
 class EnterSchoolActivity : AppCompatActivity() {
 
