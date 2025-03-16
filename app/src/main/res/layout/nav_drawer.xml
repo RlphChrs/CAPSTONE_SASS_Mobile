@@ -35,7 +35,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Fixed: NavigationView Width & Visibility -->
+    <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="280dp"
@@ -48,93 +48,102 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:paddingTop="16dp">
+
+            <!-- User Profile Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/profile_picture"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/profile_image"
+                    android:background="@drawable/circle_background"
+                    android:scaleType="centerCrop" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:id="@+id/user_role"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BSIT"
+                        android:textSize="12sp"
+                        android:textColor="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ralph Christian"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </LinearLayout>
 
             <!-- New Chat Button -->
             <Button
                 android:id="@+id/btn_new_chat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/new_chat"
-                android:backgroundTint="@color/black"
+                android:layout_height="50dp"
+                android:text="+ New chat"
+                android:background="@drawable/rounded_black_button"
                 android:textColor="@android:color/white"
+                android:textSize="14sp"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="12dp"
+                android:gravity="center" />
 
-            <!-- Scrollable Conversation History -->
+            <!-- Chat History Label -->
+            <TextView
+                android:id="@+id/chat_history_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chat History"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="4dp"
+                android:visibility="gone" />
+
+            <!-- Scrollable Chat History -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_conversations"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:paddingHorizontal="16dp" />
+                android:paddingHorizontal="16dp"
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
 
-            <!-- Fixed Bottom Settings -->
-            <LinearLayout
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/darker_gray"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Bottom Menu Items -->
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/navigation_view_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingVertical="8dp"
-                android:background="@color/white">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/darker_gray"
-                    android:layout_marginBottom="8dp" />
-
-                <Button
-                    android:id="@+id/btn_clear_conversations"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/clear_conversations"
-                    android:textColor="@android:color/black"
-                    android:background="?attr/selectableItemBackground"
-                    android:padding="12dp"
-                    android:drawableStart="@drawable/delete_icon"
-                    android:contentDescription="@string/delete_icon_description"
-                    android:gravity="start"
-                    android:layout_marginHorizontal="16dp" />
-
-                <Button
-                    android:id="@+id/btn_notifications"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/notifications"
-                    android:textColor="@android:color/black"
-                    android:background="?attr/selectableItemBackground"
-                    android:padding="12dp"
-                    android:drawableStart="@drawable/notification_icon"
-                    android:contentDescription="@string/notification_icon_description"
-                    android:gravity="start"
-                    android:layout_marginHorizontal="16dp" />
-
-                <Button
-                    android:id="@+id/btn_updates"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/updates_faq"
-                    android:textColor="@android:color/black"
-                    android:background="?attr/selectableItemBackground"
-                    android:padding="12dp"
-                    android:drawableStart="@drawable/information_icon"
-                    android:contentDescription="@string/info_icon_description"
-                    android:gravity="start"
-                    android:layout_marginHorizontal="16dp" />
-
-                <Button
-                    android:id="@+id/btn_logout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/logout"
-                    android:textColor="@android:color/black"
-                    android:background="?attr/selectableItemBackground"
-                    android:padding="12dp"
-                    android:drawableStart="@drawable/logout_icon"
-                    android:contentDescription="@string/logout_icon_description"
-                    android:gravity="start"
-                    android:layout_marginHorizontal="16dp" />
-            </LinearLayout>
+                app:menu="@menu/menu"
+                app:itemIconTint="@color/black"
+                app:itemTextAppearance="@style/NavigationMenuItemStyle"
+                app:itemBackground="@drawable/custom_menu_item_background" />
 
         </LinearLayout>
     </com.google.android.material.navigation.NavigationView>

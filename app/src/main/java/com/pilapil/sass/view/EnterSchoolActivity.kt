@@ -31,13 +31,13 @@ class EnterSchoolActivity : AppCompatActivity() {
             insets
         }
 
-        // 🔹 Manually Initialize ViewModel
+        // viewModel dependency not working so i decided to proceed with the manual viewModelProvider approach
         viewModel = ViewModelProvider(this)[EnterSchoolViewModel::class.java]
 
         etLink = findViewById(R.id.et_link)
         btnEnter = findViewById(R.id.btn_enter)
 
-        // 🔹 Check if school name is already saved
+        // Check if school name is already saved
         val savedSchool = viewModel.getSavedSchoolName()
         if (!savedSchool.isNullOrEmpty()) {
             navigateToChatbot()
