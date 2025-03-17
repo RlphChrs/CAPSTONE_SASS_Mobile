@@ -2,130 +2,120 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Report"
     android:padding="16dp"
     android:background="@android:color/white">
 
-    <!-- Toolbar -->
-    <LinearLayout
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        app:layout_constraintTop_toTopOf="parent">
+    <!-- Top Navigation: Menu and Profile -->
+    <ImageButton
+        android:id="@+id/btnMenu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/menu_icon"
+        android:src="@drawable/menu_toggle"
+        android:background="?android:selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-        <!-- Menu Icon -->
-        <ImageView
-            android:id="@+id/menu_icon"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:src="@drawable/menu_toggle"
-            android:contentDescription="@string/menu_icon" />
+    <ImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_image"
+        android:contentDescription="@string/profile_picture"
+        android:background="@drawable/circle_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <!-- Profile Picture -->
-        <ImageView
-            android:id="@+id/profile_icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/circle_background"
-            android:contentDescription="@string/profile_picture"
-            android:padding="4dp"
-            android:src="@drawable/profile_image" />
-    </LinearLayout>
-
-    <!-- Instruction Text -->
+    <!-- Header Text -->
     <TextView
-        android:id="@+id/instructionText"
+        android:id="@+id/textHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/instruction_text"
+        android:text="@string/report_warning"
         android:textSize="14sp"
         android:textColor="@android:color/black"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btnMenu"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:paddingTop="16dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Checkbox (I Understand) -->
+    <!-- Checkbox for understanding -->
     <CheckBox
         android:id="@+id/checkboxUnderstand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/checkbox_understand"
+        android:text="@string/understand_text"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/instructionText"
-        app:layout_constraintStart_toStartOf="parent"
-        android:paddingTop="8dp"/>
+        android:textSize="14sp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/textHeader"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- Name Input -->
+    <!-- Name Input Field -->
     <EditText
         android:id="@+id/inputName"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/input_name_hint"
+        android:layout_height="48dp"
         android:inputType="textPersonName"
-        android:autofillHints="name"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:background="@android:color/white"
+        android:hint="@string/hint_name"
+        android:background="@drawable/rounded_input"
         android:padding="12dp"
+        android:textSize="16sp"
+        android:autofillHints="name"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@id/checkboxUnderstand"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- ID Number Input -->
+    <!-- ID Number Input Field -->
     <EditText
         android:id="@+id/inputIdNumber"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/input_id_hint"
+        android:layout_height="48dp"
         android:inputType="number"
-        android:autofillHints="username"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:background="@android:color/white"
+        android:hint="@string/hint_id_number"
+        android:background="@drawable/rounded_input"
         android:padding="12dp"
+        android:textSize="16sp"
+        android:autofillHints="username"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@id/inputName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Reason Input -->
+    <!-- Reason for Report Input Field -->
     <EditText
         android:id="@+id/inputReason"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/input_reason_hint"
+        android:layout_height="48dp"
+        android:hint="@string/hint_reason"
         android:inputType="text"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:background="@android:color/white"
+        android:background="@drawable/rounded_input"
         android:padding="12dp"
+        android:textSize="16sp"
+        android:autofillHints="text"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@id/inputIdNumber"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Description Input -->
+    <!-- Description Input Field -->
     <EditText
         android:id="@+id/inputDescription"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:hint="@string/input_description_hint"
-        android:inputType="textMultiLine"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:background="@android:color/white"
+        android:hint="@string/hint_description"
+        android:background="@drawable/rounded_input"
         android:padding="12dp"
         android:gravity="top"
+        android:textSize="16sp"
+        android:autofillHints="text"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@id/inputReason"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -135,23 +125,26 @@
         android:id="@+id/checkboxConfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/checkbox_confirm"
+        android:text="@string/confirmation_text"
         android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@id/inputDescription"
-        app:layout_constraintStart_toStartOf="parent"
-        android:paddingTop="8dp"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- Done Button -->
+    <!-- Done ~ -->
     <Button
         android:id="@+id/btnDone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_done"
-        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/darkBlue"
+        android:text="@string/done_button"
+        android:textAllCaps="true"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/checkboxConfirm"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkboxConfirm" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

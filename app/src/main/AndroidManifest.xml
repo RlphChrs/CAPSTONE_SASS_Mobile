@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -18,34 +17,32 @@
         android:theme="@style/Theme.SASS"
         tools:targetApi="34">
 
-
         <activity
             android:name=".view.EnterSchoolActivity"
             android:exported="false" />
         <activity
             android:name=".view.RegistrationActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.ScheduleActivity"
             android:exported="false"/>
-
         <activity
             android:name=".view.AppointmentBooking"
             android:exported="false"/>
 
+        <!-- Make Report the launcher activity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".view.Report"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
-
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
 
     </application>
 

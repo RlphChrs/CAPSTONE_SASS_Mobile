@@ -51,7 +51,7 @@
                 android:layout_height="8dp"
                 android:background="@drawable/schedule_circle_blue"
                 android:layout_gravity="center_vertical"
-                android:marginEnd="8dp"/>
+                android:layout_marginRight="8dp"/>
 
             <TextView
                 android:id="@+id/txtMeetingTitle"
