@@ -40,7 +40,7 @@
 
         <!-- Report is the launcher activity -->
         <activity
-            android:name=".view.Report"
+            android:name=".view."
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
