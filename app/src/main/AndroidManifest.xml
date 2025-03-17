@@ -17,20 +17,10 @@
         android:theme="@style/Theme.SASS"
         tools:targetApi="34">
 
-<<<<<<< HEAD
-=======
         <activity
             android:name=".view.LoginActivity"
-            android:exported="true">
+            android:exported="false"/>
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-
->>>>>>> 5f4d5aaa0cd4860f5bf830d28943a15be6326688
         <activity
             android:name=".view.EnterSchoolActivity"
             android:exported="false" />
@@ -44,9 +34,12 @@
             android:name=".view.AppointmentBooking"
             android:exported="false"/>
 
-        <!-- Make Report the launcher activity -->
         <activity
-<<<<<<< HEAD
+            android:name=".MainActivity"
+            android:exported="true"/>
+
+        <!-- Report is the launcher activity -->
+        <activity
             android:name=".view.Report"
             android:exported="true">
             <intent-filter>
@@ -54,15 +47,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-=======
-            android:name=".MainActivity"
-            android:exported="true"/>
-
->>>>>>> 5f4d5aaa0cd4860f5bf830d28943a15be6326688
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"/>
 
     </application>
 
