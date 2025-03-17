@@ -1,7 +1,5 @@
 package com.pilapil.sass.view
 
-
-
 import android.os.Bundle
 import android.widget.ImageView
 import com.pilapil.sass.R
