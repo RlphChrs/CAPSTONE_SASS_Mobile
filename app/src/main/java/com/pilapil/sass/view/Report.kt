@@ -7,6 +7,7 @@ import com.pilapil.sass.R
 import androidx.appcompat.app.AppCompatActivity
 
 
+<<<<<<< HEAD
 
 class Report : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,4 +16,8 @@ class Report : AppCompatActivity() {
 
 
     }
+=======
+class Report : Fragment() {
+
+>>>>>>> 5f4d5aaa0cd4860f5bf830d28943a15be6326688
 }

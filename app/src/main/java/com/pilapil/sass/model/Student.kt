@@ -4,7 +4,7 @@ data class Student(
     val userId: String,
     val email: String,
     val password: String,
-    val repeatPassword: String,  // ✅ Add repeatPassword
+    val repeatPassword: String,
     val firstName: String,
     val lastName: String,
     val role: String = "Student",

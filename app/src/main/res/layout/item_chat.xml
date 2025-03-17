@@ -1,0 +1,23 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="16dp">
+
+    <ImageView
+        android:id="@+id/chat_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/icon_set"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/chat_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AI Chat Tool Impact Writing"
+        android:textSize="14sp"
+        android:textColor="@color/black" />
+</LinearLayout>

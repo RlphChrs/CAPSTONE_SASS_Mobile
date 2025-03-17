@@ -1,4 +1,4 @@
-package com.pilapil.sass.viewmodel
+package com.pilapil.sass.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

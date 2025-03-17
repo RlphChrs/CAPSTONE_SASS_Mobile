@@ -12,11 +12,11 @@
         android:icon="@drawable/chat_icon"
         android:title="@string/ai_chat_tool_impact_writing" />
     <item
-        android:id="@+id/Report"
+        android:id="@+id/nav_reports"
         android:icon="@drawable/ic_report"
         android:title="@string/report1" />
     <item
-        android:id="@+id/Calendar"
+        android:id="@+id/nav_calendar"
         android:icon="@drawable/ic_calendar"
         android:title="@string/calendar" />
 
