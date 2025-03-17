@@ -132,7 +132,7 @@
         app:layout_constraintTop_toBottomOf="@id/inputDescription"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- Done ~ -->
+    <!-- Done i dont know if this is working ~ -->
     <Button
         android:id="@+id/btnDone"
         android:layout_width="match_parent"
