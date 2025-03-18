@@ -130,20 +130,21 @@
     <string name="calendar">Calendar</string>
 
     //Report
+    <string name="menu_description">Menu</string>
+    <string name="report_warning">Make sure to report the right person and also legit. Reporting someone without legitimacy will be punished accordingly</string>
 
-    <!-- Instruction Text -->
-    <string name="instruction_text">Please fill out the form below to report your concern.</string>
+    <!-- Checkbox Texts -->
+    <string name="understand_text">I Understand.</string>
+    <string name="confirmation_text">I confirm that the information provided is accurate to the best of my knowledge.</string>
 
-    <!-- Checkbox Labels -->
-    <string name="checkbox_understand">I understand the instructions</string>
-    <string name="checkbox_confirm">I confirm that the information provided is accurate</string>
+    <!-- Input Hints -->
+    <string name="hint_name">Name of the person involved:</string>
+    <string name="hint_id_number">ID Number of the Person Involved:</string>
+    <string name="hint_reason">Reason for report:</string>
+    <string name="hint_description">Describe what happened</string>
+    <string name="done_button">D O N E</string>
 
-    <!-- Input Field Hints -->
-    <string name="input_name_hint">Enter the name of the person involved</string>
-    <string name="input_id_hint">Enter the ID number of the person involved</string>
-    <string name="input_reason_hint">Enter the reason for your report</string>
-    <string name="input_description_hint">Provide a detailed description</string>
-    <string name="button_done">DONE</string>
+
 
     //Calendar
     <string name="select_date">Select a date to see available schedules</string>
