@@ -19,7 +19,12 @@
 
         <activity
             android:name=".view.LoginActivity"
-            android:exported="false"/>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".view.EnterSchoolActivity"
@@ -36,17 +41,12 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
+            android:exported="false"/>
 
-        <!-- Report is the launcher activity -->
         <activity
-            android:name=".view."
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".view.Report"
+            android:exported="false"/>
+
 
     </application>
 

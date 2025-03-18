@@ -7,7 +7,7 @@
     android:padding="16dp"
     android:background="@android:color/white">
 
-    <!-- Top Navigationfgf: Menu and Profile -->
+
     <ImageButton
         android:id="@+id/btnMenu"
         android:layout_width="48dp"
@@ -43,7 +43,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Checkboxgfg for understanding -->
     <CheckBox
         android:id="@+id/checkboxUnderstand"
         android:layout_width="wrap_content"
@@ -55,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@id/textHeader"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- Name fgfInput Field -->
+
     <EditText
         android:id="@+id/inputName"
         android:layout_width="0dp"
@@ -71,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- ID Number fgInput Field -->
+
     <EditText
         android:id="@+id/inputIdNumber"
         android:layout_width="0dp"
