@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.Calendar"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:fontFamily="@font/poppins_regulars">
 
     <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar

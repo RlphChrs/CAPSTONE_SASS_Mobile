@@ -2,10 +2,13 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fontFamily="@font/poppins_regulars"
     android:fillViewport="true"
-    android:background="@color/white">
+    android:background="@color/white"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -117,7 +120,8 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/clock_logo"
-                    android:layout_marginRight="8dp"/>
+                    android:layout_marginRight="8dp"
+                    tools:ignore="ContentDescription" />
 
                 <EditText
                     android:id="@+id/fromHour"
@@ -208,7 +212,8 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/clock_logo"
-                    android:layout_marginRight="8dp"/>
+                    android:layout_marginRight="8dp"
+                    tools:ignore="ContentDescription" />
 
                 <EditText
                     android:id="@+id/toHour"

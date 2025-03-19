@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="@color/white"
+    android:fontFamily="@font/poppins_regulars"
     tools:context=".view.Profile">
 
     <LinearLayout

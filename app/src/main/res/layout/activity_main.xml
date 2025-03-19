@@ -6,7 +6,8 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:fontFamily="@font/poppins_regulars">
 
     <!-- Main Content -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,7 +82,7 @@
             android:id="@+id/chat_history_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chat History"
+            android:text="@string/chat_history"
             android:textSize="14sp"
             android:textColor="@color/black"
             android:paddingHorizontal="16dp"
@@ -134,9 +135,11 @@
                 android:id="@+id/et_message"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:hint="@string/send_a_message"
                 android:layout_weight="1"
-                android:background="@drawable/message_input_background"/>
+                android:autofillHints="message"
+                android:background="@drawable/message_input_background"
+                android:hint="@string/send_a_message"
+                tools:ignore="TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
             <ImageButton
                 android:id="@+id/btn_send_message"
@@ -145,7 +148,7 @@
                 android:background="@drawable/send_message_icon"
                 android:contentDescription="@string/send_button"
                 android:scaleType="centerInside"
-                tools:ignore="RedundantDescriptionCheck" />
+                tools:ignore="RedundantDescriptionCheck,TouchTargetSizeCheck" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
