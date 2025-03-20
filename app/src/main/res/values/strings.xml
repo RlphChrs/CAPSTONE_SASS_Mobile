@@ -7,13 +7,13 @@
     <!--Link input -->
     <string name="app_logo">App Logo</string>
     <string name="sass">SASS</string>
-    <string name="enter_link">School Name</string>
-    <string name="https_example_com_link">https://example.com/link</string>
+    <string name="enter_link" translatable="false">Enter School</string>
+    <string name="https_example_com_link" translatable="false">University of Cebu</string>
     <string name="enter">ENTER</string>
 
     <!--Log in -->
     <string name="sass1">SASS</string>
-    <string name="enter_your_email_and_password_for_sign_in">Enter your email and password for sign in.</string>
+    <string name="enter_your_email_and_password_for_sign_in">Enter your email and</string>
     <string name="username_or_email">Username or email</string>
     <string name="password">Password</string>
     <string name="forgot_password">Forgot password?</string>
@@ -40,7 +40,8 @@
 
     <!-- Registration -->
     <string name="create_account">Create Account</string>
-    <string name="enter_your_name_email_and_password_for_sign_up">Enter your Name, Email and Password for sign up.</string>
+    <string name="enter_your_name_email_and_password_for_sign_up">Enter your Name, Email and Password for </string>
+    <string name="sign_up">sign up.</string>
     <string name="already_have_account">Already have account?</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
@@ -51,6 +52,7 @@
     <string name="register">REGISTER</string>
     <string name="or_register_with">or register with</string>
     <string name="sign_in_with_google1">Sign in with Google</string>
+
 
     <!-- Notification -->
     <string name="menu_icon1">Menu Icon</string>
@@ -203,6 +205,19 @@
     <string name="dislike">Dislike</string>
     <string name="bot_icon">Bot Icon</string>
     <string name="warning_message">Your messages may be used to improve our AI.</string>
+    <string name="password_for_sign_in">password for sign in</string>
+    <string name="password1">Password</string>
+    <string name="username_or_email1">Username or email</string>
+    //item_chat
+    <string name="ai_chat_tool_impact_writing1">ai_chat_tool_impact_writing</string>
+    //Nav_drawer
+    <string name="bsit">BSIT</string>
+    <string name="ralph_christian">Ralph Christian</string>
+    <string name="new_chat1">New Chat</string>
+    <string name="chat_history1">chat history</string>
+    //Nav_header
+    <string name="bsit1">BSIT</string>
+    <string name="ralph_christian1">Ralph Christian</string>
 
 
 </resources>

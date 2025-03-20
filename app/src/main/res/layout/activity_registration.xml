@@ -7,45 +7,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.RegistrationActivity"
-    android:background="@color/darkBlue">
+    android:background="@color/darkBlue"
+    android:fontFamily="@font/poppins_regulars">
 
     <TextView
         android:id="@+id/tv_register_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
         android:text="@string/create_account"
-        android:textSize="24sp"
-        android:textStyle="bold"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_register_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="@string/enter_your_name_email_and_password_for_sign_up"
-        android:textSize="14sp"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/tv_register_title"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        app:layout_constraintHorizontal_bias="0.362"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_register_title" />
+
+    <!-- Input Fields -->
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="312dp"
+        android:text="@string/sign_up"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_register_subtitle" />
 
     <TextView
         android:id="@+id/tv_already_have_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="112dp"
         android:text="@string/already_have_account"
-        android:textSize="14sp"
         android:textColor="@color/linkBlue"
-        app:layout_constraintTop_toBottomOf="@id/tv_register_subtitle"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="32dp" />
+        app:layout_constraintTop_toBottomOf="@id/tv_register_subtitle" />
 
-    <!-- Input Fields -->
     <EditText
         android:id="@+id/et_first_name"
         android:layout_width="0dp"
@@ -53,7 +70,7 @@
         android:hint="@string/first_name"
         android:background="@drawable/input_field_background_login"
         android:padding="12dp"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/tv_already_have_account"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +85,7 @@
         android:hint="@string/last_name"
         android:background="@drawable/input_field_background_login"
         android:padding="12dp"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
         android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@id/et_first_name"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +101,7 @@
         android:background="@drawable/input_field_background_login"
         android:padding="12dp"
         android:inputType="textEmailAddress"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
         android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@id/et_last_name"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +117,7 @@
         android:background="@drawable/input_field_background_login"
         android:padding="12dp"
         android:inputType="textPassword"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
         android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@id/et_email"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,7 +133,7 @@
         android:background="@drawable/input_field_background_login"
         android:padding="12dp"
         android:inputType="textPassword"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
         android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@id/et_password"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,30 +156,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_repeat_password" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/Indigo"
         android:text="@string/register"
-        android:backgroundTint="@color/buttonBlue"
         android:textColor="@android:color/white"
+        app:cornerRadius="5dp"
         app:layout_constraintTop_toBottomOf="@id/cb_terms_conditions"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="32dp"
-        tools:ignore="VisualLintButtonSize" />
+        tools:ignore="VisualLintButtonSize"
+        />
+
 
     <!-- Divider -->
     <View
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="1dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
         android:background="@android:color/white"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_register"
+        app:layout_constraintEnd_toStartOf="@+id/tv_or_register_with"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="32dp" />
+        app:layout_constraintTop_toBottomOf="@id/btn_register"
+        tools:ignore="VisualLintBounds"
+        android:fontFamily="@font/poppins_regulars"/>
+
+    <View
+        android:layout_width="150dp"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        app:layout_constraintLeft_toRightOf="@+id/tv_or_register_with"
+        app:layout_constraintTop_toBottomOf="@id/btn_register"
+        tools:ignore="VisualLintBounds" />
 
     <TextView
         android:id="@+id/tv_or_register_with"
@@ -178,18 +211,20 @@
     <!-- Google Sign-In Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_google_register"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:icon="@drawable/google"
-
-        android:text="@string/sign_in_with_google1"
+        android:layout_width="346dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="@color/white"
-        android:textColor="@color/darkText"
-        app:layout_constraintTop_toBottomOf="@id/tv_or_register_with"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/sign_in_with_google"
+        android:textColor="@color/black"
+        app:cornerRadius="4dp"
+        app:icon="@drawable/google"
+        app:iconGravity="textStart"
+        app:iconSize="24dp"
+        app:iconTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_or_register_with"
         tools:ignore="VisualLintButtonSize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

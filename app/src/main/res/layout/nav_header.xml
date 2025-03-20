@@ -1,8 +1,10 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:fontFamily="@font/poppins_regulars"
     android:padding="16dp"
     android:background="@color/white">
 
@@ -19,7 +21,8 @@
             android:layout_height="50dp"
             android:src="@drawable/profile_image"
             android:background="@drawable/circle_background"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -31,15 +34,16 @@
                 android:id="@+id/user_role"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BSIT"
+                android:text="@string/bsit1"
+                android:textColor="@color/gray"
                 android:textSize="12sp"
-                android:textColor="@color/gray" />
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ralph Christian"
+                android:text="@string/ralph_christian1"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black" />
@@ -51,10 +55,11 @@
         android:id="@+id/btn_new_chat"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="+ New chat"
-        android:background="@drawable/rounded_black_button"
+        android:text="@string/new_chat1"
+        android:backgroundTint="@color/Indigo"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:layout_marginTop="12dp"
-        android:gravity="center" />
+        android:gravity="center"
+        tools:ignore="VisualLintButtonSize" />
 </LinearLayout>
