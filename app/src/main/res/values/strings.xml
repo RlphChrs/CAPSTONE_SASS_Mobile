@@ -62,8 +62,8 @@
     <string name="notificationsmenu">Notifications</string>
 
     <!-- Menu -->
-    <string name="new_chat">+ New Chat</string>
-    <string name="ai_chat_tool_impact_writing">AI Chat Tool Impact Writing</string>
+    <string name="new_chat"> New Chat</string>
+    <string name="history">History</string>
     <string name="clear_conversations">Clear Conversations</string>
     <string name="notificationsMenu">Notifications</string>
     <string name="updates_and_faqmenu">Updates and FAQ</string>
@@ -145,7 +145,6 @@
     <string name="hint_reason">Reason for report:</string>
     <string name="hint_description">Describe what happened</string>
     <string name="done_button">D O N E</string>
-
 
 
     //Calendar

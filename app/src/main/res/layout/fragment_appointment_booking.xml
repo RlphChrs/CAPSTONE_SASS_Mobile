@@ -1,64 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fontFamily="@font/poppins_regulars"
-    android:fillViewport="true"
     android:background="@color/white"
-    >
+    android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-
-        <!-- Top Bar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="12dp">
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:fontFamily="@font/poppins_regulars">
 
-            <!-- Menu Icon -->
-            <ImageView
-                android:id="@+id/menu_button"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/menu_toggle"
-                android:contentDescription="@string/menu_icon_description"/>
+            <!-- ✅ Everything else stays the same (date, time pickers, etc.) -->
 
-            <!-- Spacer to push profile to right -->
-            <View
-                android:layout_width="0dp"
+            <!-- Title -->
+            <TextView
+                android:id="@+id/title_pick_date"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <!-- Profile Picture -->
-            <ImageView
-                android:id="@+id/profile_picture"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/profile_image"
-                android:contentDescription="@string/profile_picture"
-                android:background="@drawable/circle_background"
-                android:scaleType="centerCrop"/>
-        </LinearLayout>
-
-        <!-- Title -->
-        <TextView
-            android:id="@+id/title_pick_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pick_date_time"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"/>
+                android:text="@string/pick_date_time"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
 
         <!-- Date Picker -->
         <com.google.android.material.textfield.TextInputLayout
@@ -333,6 +310,6 @@
             android:layout_marginTop="16dp"/>
 
 
-
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,12 +2,14 @@ package com.pilapil.sass.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.pilapil.sass.MainActivity
 import com.pilapil.sass.R
 import com.pilapil.sass.api.ApiService
 import com.pilapil.sass.repository.StudentAuthRepository
@@ -26,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
 
         sessionManager = SessionManager(this)
 
-        // viewModel dependency not working so i decided to proceed with the manual viewModelProvider approach
         authViewModel = ViewModelProvider(
             this,
             ViewModelFactory(StudentAuthRepository(ApiService.create()))
@@ -36,6 +37,10 @@ class LoginActivity : AppCompatActivity() {
         val passwordInput = findViewById<EditText>(R.id.et_password)
         val loginButton = findViewById<Button>(R.id.btn_sign_in)
         val registerText = findViewById<TextView>(R.id.tv_create_account)
+
+        registerText.setOnClickListener {
+            startActivity(Intent(this, RegistrationActivity::class.java))
+        }
 
         loginButton.setOnClickListener {
             val email = emailInput.text.toString().trim()
@@ -47,20 +52,31 @@ class LoginActivity : AppCompatActivity() {
             }
 
             authViewModel.loginStudent(email, password,
-                onSuccess = { token ->
+                onSuccess = onSuccess@{ token, studentId, schoolName ->
+                    Log.d("LoginDebug", "Token: $token")
+                    Log.d("LoginDebug", "Student ID: $studentId")
+                    Log.d("LoginDebug", "School Name: $schoolName")
+
+                    if (token.isEmpty() || studentId.isEmpty() || schoolName.isEmpty()) {
+                        Toast.makeText(
+                            this,
+                            "Login failed: Missing required data",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@onSuccess
+                    }
+
                     sessionManager.saveAuthToken(token)
-                    Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, EnterSchoolActivity::class.java))
+                    sessionManager.saveStudentId(studentId)
+                    sessionManager.saveSchoolId(schoolName)
+
+                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 },
                 onError = { error ->
                     Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
                 }
             )
-        }
-
-        registerText.setOnClickListener {
-            startActivity(Intent(this, RegistrationActivity::class.java))
         }
     }
 }

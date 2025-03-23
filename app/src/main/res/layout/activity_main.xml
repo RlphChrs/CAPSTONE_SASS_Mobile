@@ -6,154 +6,35 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:fontFamily="@font/poppins_regulars">
+    tools:context=".MainActivity">
 
     <!-- Main Content -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- App Bar with Menu and Profile -->
-        <LinearLayout
-            android:id="@+id/app_bar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp"
+        <!-- ✅ Common Header -->
+        <include
+            android:id="@+id/main_header"
+            layout="@layout/header_common"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Menu Icon -->
-            <ImageView
-                android:id="@+id/menu_icon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/menu_toggle"
-                android:contentDescription="@string/menu_icon" />
-
-            <!-- Spacer -->
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <!-- Profile Icon -->
-            <ImageView
-                android:id="@+id/profile_icon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/profile_image"
-                android:contentDescription="@string/profile_icon"
-                android:background="@drawable/circle_background"
-                android:padding="4dp" />
-        </LinearLayout>
-
-        <!-- App Logo -->
-        <ImageView
-            android:id="@+id/logo_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/app_icon"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@id/app_bar"
+        <!-- ✅ Fragment Container (For Chat, History, Profile, etc.) -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/main_fragment_container"
+            android:name="androidx.fragment.app.Fragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/main_header"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="@string/app_logo1" />
-
-        <!-- Terms and Conditions -->
-        <TextView
-            android:id="@+id/tv_terms_conditions"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:paddingHorizontal="16dp"
-            android:text="@string/by_chatting_with_me_you_accept_to_our_terms_and_conditions_as_well_as_our_privacy_and_cookie_policies"
-            android:textColor="#546E7A"
-            android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@id/logo_image"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Chat History Label -->
-        <TextView
-            android:id="@+id/chat_history_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/chat_history"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            android:paddingHorizontal="16dp"
-            android:paddingBottom="4dp"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tv_terms_conditions"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Chat History RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_conversations"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingHorizontal="16dp"
-            android:nestedScrollingEnabled="false"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/chat_history_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- for chat items -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/chatRecyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:paddingHorizontal="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/recycler_conversations"
-            app:layout_constraintBottom_toTopOf="@id/message_input_section"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <!-- Message Input -->
-        <LinearLayout
-            android:id="@+id/message_input_section"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <EditText
-                android:id="@+id/et_message"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:autofillHints="message"
-                android:background="@drawable/message_input_background"
-                android:hint="@string/send_a_message"
-                tools:ignore="TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize" />
-
-            <ImageButton
-                android:id="@+id/btn_send_message"
-                android:layout_width="56dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/send_message_icon"
-                android:contentDescription="@string/send_button"
-                android:scaleType="centerInside"
-                tools:ignore="RedundantDescriptionCheck,TouchTargetSizeCheck" />
-        </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Navigation Drawer -->
+    <!-- ✅ Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"

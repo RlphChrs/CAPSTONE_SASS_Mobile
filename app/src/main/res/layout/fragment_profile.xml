@@ -15,34 +15,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <LinearLayout
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <!-- Menu Icon -->
-            <ImageButton
-                android:id="@+id/menu_icon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/menu_toggle"
-                android:contentDescription="@string/content_desc_menu_icon" />
-
-            <!-- Profile Title -->
-            <TextView
-                android:id="@+id/tv_profile_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/profile"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
         <!-- Profile Header -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -181,6 +153,5 @@
             android:backgroundTint="@color/lightBlue"
             android:textColor="@color/primaryColor"
             android:layout_marginTop="16dp" />
-
     </LinearLayout>
 </ScrollView>

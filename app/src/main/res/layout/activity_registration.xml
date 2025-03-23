@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/mainScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.RegistrationActivity"
     android:background="@color/darkBlue"
-    android:fontFamily="@font/poppins_regulars">
+    tools:context=".view.RegistrationActivity"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp"
+        android:fontFamily="@font/poppins_regulars">
 
     <TextView
         android:id="@+id/tv_register_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="52dp"
         android:text="@string/create_account"
         android:textColor="@android:color/white"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,6 +116,22 @@
         tools:ignore="Autofill,VisualLintTextFieldSize" />
 
     <EditText
+        android:id="@+id/et_school_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter School Name"
+        android:background="@drawable/input_field_background_login"
+        android:padding="12dp"
+        android:textColorHint="@android:color/darker_gray"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/et_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="32dp"
+        tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+
+    <EditText
         android:id="@+id/et_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -119,7 +141,7 @@
         android:inputType="textPassword"
         android:textColorHint="@android:color/darker_gray"
         android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/et_email"
+        app:layout_constraintTop_toBottomOf="@id/et_school_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="32dp"
@@ -172,31 +194,6 @@
         tools:ignore="VisualLintButtonSize"
         />
 
-
-    <!-- Divider -->
-    <View
-        android:layout_width="150dp"
-        android:layout_height="1dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/white"
-        app:layout_constraintEnd_toStartOf="@+id/tv_or_register_with"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_register"
-        tools:ignore="VisualLintBounds"
-        android:fontFamily="@font/poppins_regulars"/>
-
-    <View
-        android:layout_width="150dp"
-        android:layout_height="1dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/white"
-        app:layout_constraintLeft_toRightOf="@+id/tv_or_register_with"
-        app:layout_constraintTop_toBottomOf="@id/btn_register"
-        tools:ignore="VisualLintBounds" />
-
     <TextView
         android:id="@+id/tv_or_register_with"
         android:layout_width="wrap_content"
@@ -227,4 +224,5 @@
         app:layout_constraintTop_toBottomOf="@id/tv_or_register_with"
         tools:ignore="VisualLintButtonSize" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

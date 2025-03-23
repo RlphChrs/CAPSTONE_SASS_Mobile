@@ -1,6 +1,8 @@
 package com.pilapil.sass.model
-
 data class ChatRequest(
-    val school_id: String,
-    val user_input: String
+    val schoolId: String,   // ✅ Use camelCase to match backend
+    val studentId: String,  // ✅ Consistently use studentId
+    val userInput: String   // ✅ Consistently use userInput
 )
+
+

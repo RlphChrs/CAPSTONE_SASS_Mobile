@@ -6,7 +6,6 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fontFamily="@font/poppins_regulars"
     tools:context=".MainActivity">
 
     <!-- Main Content -->
@@ -79,7 +78,7 @@
                         android:id="@+id/user_role"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/bsit"
+                        android:text="BSIT"
                         android:textSize="12sp"
                         android:textColor="@color/gray" />
 
@@ -87,7 +86,7 @@
                         android:id="@+id/user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/ralph_christian"
+                        android:text="Ralph Christian"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/black" />
@@ -99,7 +98,7 @@
                 android:id="@+id/btn_new_chat"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="@string/new_chat1"
+                android:text="+ New chat"
                 android:background="@drawable/rounded_black_button"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
@@ -112,7 +111,7 @@
                 android:id="@+id/chat_history_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/chat_history1"
+                android:text="Chat History"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:paddingHorizontal="16dp"

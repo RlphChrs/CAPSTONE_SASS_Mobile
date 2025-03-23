@@ -2,28 +2,37 @@ package com.pilapil.sass.view
 
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.pilapil.sass.R
 
-class Report : AppCompatActivity() {
+class Report : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_report) // Ensure this matches your XML filename
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_report, container, false)
+    }
 
-        // Initialize views
-        val checkboxUnderstand = findViewById<CheckBox>(R.id.checkboxUnderstand)
-        val inputName = findViewById<EditText>(R.id.inputName)
-        val inputIdNumber = findViewById<EditText>(R.id.inputIdNumber)
-        val inputReason = findViewById<EditText>(R.id.inputReason)
-        val inputDescription = findViewById<EditText>(R.id.inputDescription)
-        val checkboxConfirm = findViewById<CheckBox>(R.id.checkboxConfirm)
-        val btnDone = findViewById<Button>(R.id.btnDone)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val checkboxUnderstand = view.findViewById<CheckBox>(R.id.checkboxUnderstand)
+        val inputName = view.findViewById<EditText>(R.id.inputName)
+        val inputIdNumber = view.findViewById<EditText>(R.id.inputIdNumber)
+        val inputReason = view.findViewById<EditText>(R.id.inputReason)
+        val inputDescription = view.findViewById<EditText>(R.id.inputDescription)
+        val checkboxConfirm = view.findViewById<CheckBox>(R.id.checkboxConfirm)
+        val btnDone = view.findViewById<Button>(R.id.btnDone)
 
         btnDone.setOnClickListener {
             if (!checkboxUnderstand.isChecked || !checkboxConfirm.isChecked) {
-                Toast.makeText(this, "Please check both checkboxes", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Please check both checkboxes", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -33,12 +42,11 @@ class Report : AppCompatActivity() {
             val description = inputDescription.text.toString().trim()
 
             if (name.isEmpty() || idNumber.isEmpty() || reason.isEmpty() || description.isEmpty()) {
-                Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "All fields must be filled", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Handle form submission logic (e.g., save to database, send to API)
-            Toast.makeText(this, "Report submitted successfully!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Report submitted successfully!", Toast.LENGTH_SHORT).show()
         }
     }
 }

@@ -8,67 +8,14 @@
     android:layout_height="match_parent"
     tools:context=".view.Notification">
 
-    <LinearLayout
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Menu Icon -->
-        <ImageView
-            android:id="@+id/menu_icon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/menu_toggle"
-            android:contentDescription="@string/menu_icon1" />
-
-        <!-- Title -->
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/notifications"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:layout_weight="1"
-            android:gravity="center" />
-
-        <!-- Mark All Read -->
-        <TextView
-            android:id="@+id/tv_mark_all_read"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mark_all_read"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/holo_red_dark"
-            android:layout_marginEnd="8dp" />
-
-        <!-- Profile Picture -->
-        <ImageView
-            android:id="@+id/profile_icon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/profile_image"
-            android:contentDescription="@string/profile_picture"
-            android:background="@drawable/circle_background"
-            android:padding="4dp" />
-    </LinearLayout>
-
-    <!-- Notifications List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notifications_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
         android:clipToPadding="false"
-        tools:listitem="@layout/notification_item"
         android:paddingHorizontal="16dp"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        tools:listitem="@layout/notification_item"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

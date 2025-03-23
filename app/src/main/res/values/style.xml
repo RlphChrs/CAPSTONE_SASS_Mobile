@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.YourAppName" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
     <style name="ProfileText">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@android:color/black</item>

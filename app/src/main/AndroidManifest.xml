@@ -27,9 +27,6 @@
         </activity>
 
         <activity
-            android:name=".view.EnterSchoolActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.RegistrationActivity"
             android:exported="false" />
         <activity

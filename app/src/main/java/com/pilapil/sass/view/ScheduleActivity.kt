@@ -14,12 +14,5 @@ class ScheduleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_schedule) // Ensure this layout exists
 
-
-        val backButton = findViewById<ImageView>(R.id.backButton)
-
-        // Set Click Listener for Back Navigation
-        backButton.setOnClickListener {
-            onBackPressedDispatcher.onBackPressed() // Go back to the previous screen
-        }
     }
 }
