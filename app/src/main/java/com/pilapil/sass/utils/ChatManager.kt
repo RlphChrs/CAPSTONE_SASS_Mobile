@@ -19,6 +19,7 @@ class ChatManager(
 ) {
 
     private val messageBuffer = mutableListOf<ChatMessage>()
+
     fun sendMessageToChatbot(
         schoolId: String,
         studentId: String,
@@ -32,13 +33,21 @@ class ChatManager(
 
         lifecycleScope.launch {
             try {
+                /*  testing
+                val chatRequest = ChatRequest(schoolId, studentId, userMessage)
+
+                val botResponseText = "🤖 This is a test response from the mock chatbot."
+                val botMessage = ChatMessage(botResponseText, isUser = false)
+                onMessageReceived(botMessage)
+                messageBuffer.add(botMessage)
+                */
                 val chatRequest = ChatRequest(schoolId, studentId, userMessage)
                 val response: ChatResponse = apiService.sendMessage(chatRequest)
-
                 val botResponseText = response.botResponse ?: "No response from chatbot"
                 val botMessage = ChatMessage(botResponseText, isUser = false)
                 onMessageReceived(botMessage)
-                messageBuffer.add(botMessage) // Add bot response to buffer
+                messageBuffer.add(botMessage)
+
             } catch (e: Exception) {
                 onError("Error: ${e.message}")
             }
@@ -46,34 +55,47 @@ class ChatManager(
     }
 
     fun saveBufferedMessages() {
+        println("🧪 Message buffer before saving: $messageBuffer")
+
         val sessionManager = SessionManager(context)
         val rawToken = sessionManager.getAuthToken()
-        val token =
-            if (rawToken != null && rawToken.startsWith("Bearer")) rawToken else "Bearer $rawToken"
+        val token = if (rawToken != null && rawToken.startsWith("Bearer")) rawToken else "Bearer $rawToken"
         val studentId = sessionManager.getStudentId()
         val schoolId = sessionManager.getSchoolId()
 
+        println("🪪 Auth Details -> token: $token, studentId: $studentId, schoolId: $schoolId")
+
         if (token == "Bearer null" || studentId == null || schoolId == null || messageBuffer.isEmpty()) {
-            Toast.makeText(context, "Auth error or empty chat.", Toast.LENGTH_LONG).show()
+            println("❌ Missing token or student/school ID or messages. Aborting save.")
             return
         }
 
-        lifecycleScope.launch {
-            viewModel.saveChatGroup(
-                token = token,
-                schoolId = schoolId,
-                studentId = studentId,
-                messages = messageBuffer.toList(),
-                onSuccess = {
-                    println("✅ Chat group saved.")
-                    messageBuffer.clear()
-                },
-                onError = {
-                    Toast.makeText(context, "❌ Failed to save chat group", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            )
-        }
+        val groupId = "grp_${System.currentTimeMillis()}"
+        println("🆔 Generated Group ID: $groupId")
+        println("📨 About to call viewModel.saveChatGroup()...")
 
+        kotlinx.coroutines.GlobalScope.launch {
+            try {
+                println("📥 Entered saveChatGroup in ViewModel (via GlobalScope)")
+                viewModel.saveChatGroup(
+                    token = token,
+                    schoolId = schoolId,
+                    studentId = studentId,
+                    groupId = groupId,
+                    messages = messageBuffer.toList(),
+                    onSuccess = {
+                        println("✅ Chat group saved to backend")
+                        messageBuffer.clear()
+                    },
+                    onError = {
+                        println("❌ Error saving chat: $it")
+                    }
+                )
+            } catch (e: Exception) {
+                println("🔥 EXCEPTION in GlobalScope saveChatGroup: ${e.message}")
+                e.printStackTrace()
+            }
+        }
     }
+
 }

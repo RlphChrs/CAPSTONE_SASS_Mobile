@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.viewModels
 import com.pilapil.sass.R
 import com.pilapil.sass.adapter.MessageAdapter
 import com.pilapil.sass.api.ApiService
@@ -26,7 +26,10 @@ class ChatFragment : Fragment() {
     private lateinit var chatAdapter: MessageAdapter
     private val chatMessages = mutableListOf<ChatMessage>()
 
-    private lateinit var studentAuthViewModel: StudentAuthViewModel
+    private val studentAuthViewModel: StudentAuthViewModel by viewModels {
+        ViewModelFactory(StudentAuthRepository(ApiService.create()))
+    }
+
     private lateinit var chatManager: ChatManager
     private lateinit var sessionManager: SessionManager
 
@@ -42,12 +45,12 @@ class ChatFragment : Fragment() {
         val studentId = sessionManager.getStudentId()
         val schoolId = sessionManager.getSchoolId()
 
-        studentAuthViewModel = ViewModelProvider(
-            this,
-            ViewModelFactory(StudentAuthRepository(ApiService.create()))
-        )[StudentAuthViewModel::class.java]
-
-        chatManager = ChatManager(requireContext(), viewLifecycleOwner.lifecycleScope, studentAuthViewModel, PythonApiService.create())
+        chatManager = ChatManager(
+            requireContext(),
+            viewLifecycleOwner.lifecycleScope,
+            studentAuthViewModel,
+            PythonApiService.create()
+        )
 
         val inputMessage = view.findViewById<EditText>(R.id.et_message)
         val sendButton = view.findViewById<ImageButton>(R.id.btn_send_message)
@@ -70,7 +73,6 @@ class ChatFragment : Fragment() {
                 inputMessage.text.clear()
             }
         }
-
     }
 
     private fun addMessageToChat(chatMessage: ChatMessage) {
@@ -82,6 +84,7 @@ class ChatFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        println("On Destroy Triggered")
         chatManager.saveBufferedMessages()
     }
 }

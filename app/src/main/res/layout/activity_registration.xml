@@ -180,8 +180,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_register"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="346dp"
+        android:layout_height="48dp"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/Indigo"

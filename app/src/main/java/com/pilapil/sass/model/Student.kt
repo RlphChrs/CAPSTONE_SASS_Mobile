@@ -13,8 +13,6 @@ data class Student(
     val termsAccepted: Boolean
 )
 
-
-
 data class LoginRequest(
     val email: String,
     val password: String

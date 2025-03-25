@@ -31,9 +31,22 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView = view.findViewById(R.id.recycler_history)
-        adapter = ChatHistoryAdapter(chatGroups) {
-            // Optional: handle on group click
+        adapter = ChatHistoryAdapter(chatGroups) { selectedGroup ->
+            Log.d("HistoryFragment", "🟢 Opening ChatDetailFragment for groupId: ${selectedGroup.groupId}")
+
+            val bundle = Bundle().apply {
+                putParcelable("chatGroup", selectedGroup)
+            }
+
+            val detailFragment = ChatDetailFragment()
+            detailFragment.arguments = bundle
+
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.main_fragment_container, detailFragment)
+                .addToBackStack(null)
+                .commit()
         }
+
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
@@ -50,6 +63,11 @@ class HistoryFragment : Fragment() {
                     chatGroups.clear()
                     chatGroups.addAll(conversations)
                     adapter.notifyDataSetChanged()
+                    Log.d("HistoryFragment", "✅ Received ${conversations.size} conversations")
+                    conversations.forEach {
+                        Log.d("HistoryFragment", "Group: ${it.groupId}, Messages: ${it.messages.size}")
+                    }
+
                 } else {
                     Log.e("HistoryFragment", "❌ Error: ${response.errorBody()?.string()}")
                 }

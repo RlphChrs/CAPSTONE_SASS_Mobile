@@ -10,9 +10,10 @@ import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
 
-const val BASE_URL = "http://192.168.1.122:3000/api/"
-//const val BASE_URL = "http://192.168.1.121:3000/api/" // Office IP
-const val PYTHON_BASE_URL = "http://192.168.1.122:8000/" // Chatbot Backend
+//const val BASE_URL = "http://192.168.1.122:3000/api/"
+const val BASE_URL = "http://192.168.1.52:3000/api/" // Office IP
+//const val PYTHON_BASE_URL = "http://192.168.1.122:8000/"
+const val PYTHON_BASE_URL = "http://192.168.1.52:8000/" // Office Chatbot Backend
 
 interface ApiService {
     @POST("students/register/student")
@@ -21,21 +22,17 @@ interface ApiService {
     @POST("students/login")
     suspend fun loginStudent(@Body loginRequest: LoginRequest): LoginResponse
 
-    // 🔹 Save Chat Message into Firestore (Separate Chat History Collection)
     @POST("students/chat/save")
     suspend fun saveChat(
         @Header("Authorization") token: String,
         @Body chatRequest: ChatSaveRequest
     ): ApiResponse
 
-
-    // 🔹 Fetch Chat History using `studentId` (Firestore `chatHistory` Collection)
     @GET("students/chat/history/{studentId}")
     suspend fun getChatHistory(
         @Path("studentId") studentId: String,
         @Header("Authorization") token: String
     ): Response<ChatHistoryResponse>
-
 
 
     companion object {
@@ -49,7 +46,6 @@ interface ApiService {
     }
 }
 
-// 🔹 Python Backend API for Chatbot Responses
 interface PythonApiService {
     @POST("chatbot")
     suspend fun sendMessage(@Body request: ChatRequest): ChatResponse

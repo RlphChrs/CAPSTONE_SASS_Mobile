@@ -45,18 +45,27 @@ class StudentAuthRepository(private val apiService: ApiService) {
         token: String,
         schoolId: String,
         studentId: String,
+        groupId: String,
         messages: List<ChatMessage>
     ) {
         try {
             val chatRequest = ChatSaveRequest(
                 studentId = studentId,
+                groupId = groupId,
                 messages = messages
             )
-            apiService.saveChat(token, chatRequest)
+            println("📦 Repository sending chat request: $chatRequest")
+            println("🔐 With token: $token")
+            val response = apiService.saveChat(token, chatRequest)
+            println("✅ Chat save response: ${response.message}")
         } catch (e: Exception) {
+            println("❌ Error in repository.saveChat: ${e.message}")
+            e.printStackTrace() // 🔥 see the full stacktrace
             throw Exception("Failed to save chat: ${e.message}")
         }
     }
+
+
 
     suspend fun getChatHistory(token: String, studentId: String): List<ChatHistoryGroup> {
         val response = apiService.getChatHistory(studentId, token)

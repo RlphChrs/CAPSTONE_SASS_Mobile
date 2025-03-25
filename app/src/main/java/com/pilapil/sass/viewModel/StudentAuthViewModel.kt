@@ -49,18 +49,40 @@ class StudentAuthViewModel(private val repository: StudentAuthRepository) : View
     }
 
     fun saveChatGroup(
-        token: String, schoolId: String, studentId: String, messages: List<ChatMessage>,
+        token: String,
+        schoolId: String,
+        studentId: String,
+        groupId: String,
+        messages: List<ChatMessage>,
         onSuccess: () -> Unit,
         onError: (String) -> Unit
     ) {
+        println("📥 Entered saveChatGroup in ViewModel")
+
         viewModelScope.launch {
             try {
-                val request = ChatSaveRequest(studentId = studentId, messages = messages)
-                apiService.saveChat(token, request)
+                println("📤 ViewModel is calling repository.saveChat()...")
+                val request = ChatSaveRequest(
+                    studentId = studentId,
+                    groupId = groupId,
+                    messages = messages
+                )
+                println("📡 Sending request: $request")
+                repository.saveChat(token, schoolId, studentId, groupId, messages)
+                println("✅ Successfully saved chat group!")
                 onSuccess()
             } catch (e: Exception) {
+                println("❌ Exception in saveChatGroup: ${e.message}")
+                e.printStackTrace() // 🔥 add this
                 onError(e.message ?: "Failed to save group chat.")
             }
         }
     }
+
+
+
+
+
+
+
 }
