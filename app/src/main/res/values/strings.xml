@@ -223,15 +223,12 @@
     <string name="browse_btn">Browse File</string>
     <string name="browse_submit">SUBMIT</string>
     <string name="browse_guidelines">Make sure to read and follow the guidelines of the letters or documents! \nClick Here! to see sample documents.</string>
-    <string name="browse_file">Filename_here.pdf</string>
-<<<<<<< Updated upstream
+    <string name="browse_file">Filename_here.pdf</string
     <string name="enter_school_name">Enter School Name</string>
     <string name="reason_for_submitting">Reason for Submitting:</string>
     <string name="choose_a_file_ndocs_pdf">Choose a file\nDOCS, PDF</string>
-=======
     <string name="submission_nav">Submission</string>
 
->>>>>>> Stashed changes
 
 
 </resources>
