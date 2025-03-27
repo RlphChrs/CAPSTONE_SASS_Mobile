@@ -9,7 +9,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,9 +29,10 @@
                 android:id="@+id/editReason"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Reason for Submitting:"
+                android:hint="@string/reason_for_submitting"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/submission_bg" />
+                android:background="@drawable/submission_bg"
+                tools:ignore="Autofill,TextFields,VisualLintTextFieldSize" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,12 +45,13 @@
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:src="@drawable/cloud_add" />
+                    android:src="@drawable/cloud_add"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Choose a file\nDOCS, PDF"
+                    android:text="@string/choose_a_file_ndocs_pdf"
                     android:textAlignment="center" />
 
                 <Button
@@ -56,8 +59,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/browse_file_button"
-                    android:text="@string/browse_btn" />
+                    android:backgroundTint="@color/Indigo"
+                    android:text="@string/browse_btn"
+                    android:textColor="@android:color/white"/>
+
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -71,11 +76,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/browse_file_submit_button"
+                android:backgroundTint="@color/Indigo"
                 android:text="@string/browse_submit"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="VisualLintButtonSize" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
