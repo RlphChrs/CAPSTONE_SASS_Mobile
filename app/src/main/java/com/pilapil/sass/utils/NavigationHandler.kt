@@ -6,12 +6,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.pilapil.sass.R
-import com.pilapil.sass.view.Calendar
-import com.pilapil.sass.view.ChatFragment
-import com.pilapil.sass.view.HistoryFragment
-import com.pilapil.sass.view.LoginActivity
-import com.pilapil.sass.view.Notification
-import com.pilapil.sass.view.Report
+import com.pilapil.sass.view.*
 
 class NavigationHandler(
     private val context: AppCompatActivity,
@@ -48,6 +43,12 @@ class NavigationHandler(
                 R.id.nav_history -> {
                     context.supportFragmentManager.beginTransaction()
                         .replace(R.id.main_fragment_container, HistoryFragment())
+                        .addToBackStack(null)
+                        .commit()
+                }
+                R.id.nav_submission -> {
+                    context.supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_fragment_container, SubmissionFragment())
                         .addToBackStack(null)
                         .commit()
                 }

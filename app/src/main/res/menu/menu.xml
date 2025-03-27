@@ -12,6 +12,12 @@
         android:icon="@drawable/chat_icon"
         android:title="@string/history" />
 
+    <!-- Submission -->
+    <item
+        android:id="@+id/nav_submission"
+        android:icon="@drawable/submission_icon"
+        android:title="@string/submission_nav" />
+
     <!-- Divider -->
     <group android:checkableBehavior="none">
         <item
