@@ -300,11 +300,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Add Button -->
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btn_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/add_button"
+            android:background="@drawable/login_signin"
             android:backgroundTint="@color/darkBlue"
             android:textColor="@color/white"
             android:layout_marginTop="16dp"/>

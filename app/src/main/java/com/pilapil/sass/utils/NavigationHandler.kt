@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.sass.view.SubmissionFragment
 import com.google.android.material.navigation.NavigationView
 import com.pilapil.sass.R
 import com.pilapil.sass.view.*

@@ -67,6 +67,7 @@
             android:id="@+id/et_message"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:padding="12dp"
             android:hint="@string/send_a_message"
             android:layout_weight="1"
             android:background="@drawable/message_input_background" />

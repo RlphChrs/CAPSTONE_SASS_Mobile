@@ -35,12 +35,13 @@
         app:layout_constraintTop_toBottomOf="@id/tv_select_date"
         app:layout_constraintVertical_bias="0.186" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn_book_appointment"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginBottom="264dp"
+        android:background="@drawable/login_signin"
         android:backgroundTint="@color/darkBlue"
         android:text="@string/book_appointment"
         android:textAllCaps="false"

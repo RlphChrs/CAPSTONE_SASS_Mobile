@@ -1,19 +1,22 @@
 package com.pilapil.sass.api
 
 import com.pilapil.sass.model.*
+import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.Part
 import retrofit2.http.Path
 
-//const val BASE_URL = "http://192.168.1.122:3000/api/"
-const val BASE_URL = "http://192.168.1.52:3000/api/" // Office IP
-//const val PYTHON_BASE_URL = "http://192.168.1.122:8000/"
-const val PYTHON_BASE_URL = "http://192.168.1.52:8000/" // Office Chatbot Backend
+const val BASE_URL = "http://192.168.1.122:3000/api/"
+//const val BASE_URL = "http://192.168.1.52:3000/api/" // Office IP
+const val PYTHON_BASE_URL = "http://192.168.1.122:8000/"
+//const val PYTHON_BASE_URL = "http://192.168.1.52:8000/" // Office Chatbot Backend
 
 interface ApiService {
     @POST("students/register/student")
@@ -33,6 +36,21 @@ interface ApiService {
         @Path("studentId") studentId: String,
         @Header("Authorization") token: String
     ): Response<ChatHistoryResponse>
+
+    @POST("student/submissions/submit")
+    suspend fun submitFile(
+        @Header("Authorization") token: String,
+        @Body request: FileSubmissionRequest
+    ): Response<SubmissionResponse>
+
+    @Multipart
+    @POST("student/uploads/upload")
+    suspend fun uploadStudentFile(
+        @Header("Authorization") token: String,
+        @Part file: MultipartBody.Part
+    ): FileUploadResponse
+
+
 
 
     companion object {
