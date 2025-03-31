@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            authViewModel.loginStudent(email, password,
+            authViewModel.loginStudent(this, email, password,
                 onSuccess = onSuccess@{ token, studentId, schoolName ->
                     Log.d("LoginDebug", "Token: $token")
                     Log.d("LoginDebug", "Student ID: $studentId")
@@ -72,11 +72,10 @@ class LoginActivity : AppCompatActivity() {
 
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
-                },
-                onError = { error ->
-                    Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
                 }
-            )
+            ) { error ->
+                Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

@@ -1,14 +1,16 @@
 package com.pilapil.sass.viewModel
 
+import android.content.Context
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.messaging.FirebaseMessaging
 import com.pilapil.sass.api.ApiService
-import com.pilapil.sass.model.ChatHistoryGroup
 import com.pilapil.sass.model.ChatMessage
-import com.pilapil.sass.model.ChatRequest
 import com.pilapil.sass.model.ChatSaveRequest
 import com.pilapil.sass.model.Student
 import com.pilapil.sass.repository.StudentAuthRepository
+import com.pilapil.sass.view.LoginActivity
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
@@ -32,14 +34,39 @@ class StudentAuthViewModel(private val repository: StudentAuthRepository) : View
     }
 
     fun loginStudent(
-        email: String, password: String,
-        onSuccess: (String, String, String) -> Unit, // token, studentId, schoolName
+        context: Context,
+        email: String,
+        password: String,
+        onSuccess: (String, String, String) -> Unit,
         onError: (String) -> Unit
     ) {
         viewModelScope.launch {
             try {
                 val (token, studentId, schoolName) = repository.loginStudent(email, password)
                 onSuccess(token, studentId, schoolName)
+
+                FirebaseMessaging.getInstance().token.addOnSuccessListener { fcmToken ->
+                    Log.d("✅ FCM", "Token: $fcmToken")
+
+                    viewModelScope.launch {
+                        try {
+                            val response = apiService.updateFcmToken(
+                                token = "Bearer $token",
+                                fcmToken = mapOf("fcmToken" to fcmToken)
+                            )
+                            if (response.isSuccessful) {
+                                Log.d("✅ FCM", "Token saved successfully.")
+                            } else {
+                                Log.e("❌ FCM", "Failed to save token: ${response.code()}")
+                            }
+                        } catch (e: Exception) {
+                            Log.e("❌ FCM", "Exception while saving token: ${e.message}")
+                        }
+                    }
+                }.addOnFailureListener {
+                    Log.e("❌ FCM", "Failed to get FCM token")
+                }
+
             } catch (e: HttpException) {
                 onError(e.response()?.errorBody()?.string() ?: "Login failed")
             } catch (e: Exception) {

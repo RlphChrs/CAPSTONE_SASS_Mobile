@@ -2,6 +2,7 @@ package com.pilapil.sass.api
 
 import com.pilapil.sass.model.*
 import okhttp3.MultipartBody
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -12,6 +13,7 @@ import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
 import retrofit2.http.Path
+import android.telecom.Call as Call1
 
 const val BASE_URL = "http://192.168.1.122:3000/api/"
 //const val BASE_URL = "http://192.168.1.52:3000/api/" // Office IP
@@ -50,8 +52,16 @@ interface ApiService {
         @Part file: MultipartBody.Part
     ): FileUploadResponse
 
+    @GET("student/notifications/responses")
+    suspend fun getStudentNotifications(
+        @Header("Authorization") token: String
+    ): Response<NotificationResponseWrapper>
 
-
+    @POST("student/notifications/update-token")
+    suspend fun updateFcmToken(
+        @Header("Authorization") token: String,
+        @Body fcmToken: Map<String, String>
+    ): Response<ApiResponse>
 
     companion object {
         fun create(): ApiService {

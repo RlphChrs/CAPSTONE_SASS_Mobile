@@ -36,6 +36,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    apply(plugin = "com.google.gms.google-services")
+
 }
 
 dependencies {
@@ -48,6 +51,8 @@ dependencies {
     implementation(libs.androidx.ui.text.android)
     implementation(libs.filament.android)
     implementation(libs.play.services.cast.framework)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.messaging.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

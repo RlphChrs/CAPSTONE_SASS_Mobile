@@ -31,7 +31,7 @@ class StudentAuthRepository(private val apiService: ApiService) {
                 response.token,
                 response.studentId,
                 response.schoolName
-            ) // ✅ Now includes schoolName
+            )
         } catch (e: HttpException) {
             throw Exception(
                 "Login failed: ${
