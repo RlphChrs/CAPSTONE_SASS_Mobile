@@ -7,8 +7,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     android:padding="16dp"
-    android:fontFamily="@font/poppins_regulars"
-    tools:context=".view.ScheduleActivity">
+    android:fontFamily="@font/poppins_regulars">
 
     <!-- Header with Back Button, Date, and Profile Image -->
     <RelativeLayout
@@ -17,27 +16,27 @@
 
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/available_time"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:paddingTop="8dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/available_time"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/lightBlue"
-        android:layout_marginBottom="16dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/lightBlue"
+            android:layout_marginBottom="16dp"/>
 
-    <!-- Booked Schedule Section -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/booked_schedule"
-        android:textSize="16sp"
-        android:textStyle="bold"/>
+        <!-- Booked Schedule Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/available_sched"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
     </RelativeLayout>
 

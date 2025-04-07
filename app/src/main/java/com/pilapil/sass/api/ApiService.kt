@@ -15,9 +15,9 @@ import retrofit2.http.Part
 import retrofit2.http.Path
 import android.telecom.Call as Call1
 
-const val BASE_URL = "http://192.168.1.122:3000/api/"
+const val BASE_URL = "http://192.168.1.180:3000/api/"
 //const val BASE_URL = "http://192.168.1.52:3000/api/" // Office IP
-const val PYTHON_BASE_URL = "http://192.168.1.122:8000/"
+const val PYTHON_BASE_URL = "http://192.168.1.180:8000/"
 //const val PYTHON_BASE_URL = "http://192.168.1.52:8000/" // Office Chatbot Backend
 
 interface ApiService {
@@ -62,6 +62,26 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Body fcmToken: Map<String, String>
     ): Response<ApiResponse>
+
+    @POST("appointments/book")
+    suspend fun bookAppointment(
+        @Header("Authorization") token: String,
+        @Body request: BookingRequest
+    ): Response<BookingResponse>
+
+    @GET("appointments/availability/{schoolId}/{date}")
+    suspend fun getAvailableTimeSlots(
+        @Path("schoolId") schoolId: String,
+        @Path("date") date: String,
+        @Header("Authorization") token: String
+    ): Response<AvailableTimeResponse>
+
+    @GET("appointments/student/{studentId}")
+    suspend fun getStudentBookings(
+        @Path("studentId") studentId: String,
+        @Header("Authorization") token: String
+    ): Response<StudentBookingsResponse>
+
 
     companion object {
         fun create(): ApiService {

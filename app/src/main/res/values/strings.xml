@@ -188,7 +188,7 @@
     <string name="back_logo">Back Button</string>
     <string name="date_text">Select Date</string>
     <string name="available_time">Available Time</string>
-    <string name="booked_schedule">Booked Schedule</string>
+    <string name="available_sched">Available Schedule</string>
     <string name="time_start">8:00 AM</string>
     <string name="time_end">8:30 AM</string>
 
@@ -228,7 +228,6 @@
     <string name="reason_for_submitting">Reason for Submitting:</string>
     <string name="choose_a_file_ndocs_pdf">Choose a file\nDOCS, PDF</string>
     <string name="submission_nav">Submission</string>
-
 
 
 </resources>
