@@ -1,17 +1,24 @@
 package com.pilapil.sass.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pilapil.sass.databinding.ScheduleItemBinding
 
-class ScheduleAdapter : RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder>() {
+class ScheduleAdapter(
+    private val onSlotClick: (String) -> Unit
+) : RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder>() {
 
-    private val slots = mutableListOf<String>()
+    private val availableSlots = mutableListOf<String>()
+    private val allSlots = listOf(
+        "08:00", "09:00", "10:00", "11:00",
+        "13:00", "14:00", "15:00", "16:00"
+    )
 
-    fun submitList(newSlots: List<String>) {
-        slots.clear()
-        slots.addAll(newSlots)
+    fun submitList(newAvailableSlots: List<String>) {
+        availableSlots.clear()
+        availableSlots.addAll(newAvailableSlots)
         notifyDataSetChanged()
     }
 
@@ -21,20 +28,30 @@ class ScheduleAdapter : RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder>
     }
 
     override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
-        val time = slots[position]
-        holder.bind(time)
+        val slotTime = allSlots[position]
+        val isAvailable = availableSlots.contains(slotTime)
+        holder.bind(slotTime, isAvailable)
     }
 
-    override fun getItemCount(): Int = slots.size
+    override fun getItemCount(): Int = allSlots.size
 
     inner class ScheduleViewHolder(private val binding: ScheduleItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(time: String) {
+        fun bind(time: String, isAvailable: Boolean) {
             binding.txtTimeStart.text = time
-            binding.txtTimeEnd.text = "${time.dropLast(2)}${time.takeLast(2)} + 1hr"
-            binding.txtMeetingTitle.text = "Available Slot"
-            binding.txtMeetingTime.text = time
+            binding.txtAvailabilityStatus.text = if (isAvailable) "Available" else "Not Available"
+            binding.txtAvailabilityStatus.setTextColor(
+                binding.root.context.getColor(
+                    if (isAvailable) android.R.color.holo_green_dark else android.R.color.holo_red_dark
+                )
+            )
+
+            binding.root.setOnClickListener {
+                if (isAvailable) {
+                    onSlotClick.invoke(time)
+                }
+            }
         }
     }
 }

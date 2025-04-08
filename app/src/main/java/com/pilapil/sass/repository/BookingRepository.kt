@@ -16,4 +16,7 @@ class BookingRepository(private val api: ApiService) {
 
     suspend fun getStudentBookings(token: String, studentId: String) =
         api.getStudentBookings(studentId, "Bearer $token")
+
+    suspend fun getBookedAppointments(token: String, date: String) =
+        api.getBookedAppointments(date, "Bearer $token")
 }

@@ -63,11 +63,18 @@ interface ApiService {
         @Body fcmToken: Map<String, String>
     ): Response<ApiResponse>
 
-    @POST("appointments/book")
+    @POST("student/appointments/book")
     suspend fun bookAppointment(
         @Header("Authorization") token: String,
         @Body request: BookingRequest
     ): Response<BookingResponse>
+
+    @GET("student/appointments/booked/{date}")
+    suspend fun getBookedAppointments(
+        @Path("date") date: String,
+        @Header("Authorization") token: String
+    ): Response<BookedAppointmentsResponse>
+
 
     @GET("appointments/availability/{schoolId}/{date}")
     suspend fun getAvailableTimeSlots(
