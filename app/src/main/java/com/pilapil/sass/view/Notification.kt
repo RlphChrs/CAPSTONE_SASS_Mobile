@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,13 +48,28 @@ class Notification : Fragment() {
     }
 
     private fun showNotificationDialog(notification: NotificationResponse) {
-        androidx.appcompat.app.AlertDialog.Builder(requireContext())
-            .setTitle(notification.subject)
-            .setMessage(
-                "From: ${notification.from}\n\n" +
-                        "Message:\n${notification.message}"
-            )
-            .setPositiveButton("Close", null)
-            .show()
+        val dialogView = LayoutInflater.from(requireContext())
+            .inflate(R.layout.dialog_notification_details, null)
+
+        val subjectText = dialogView.findViewById<TextView>(R.id.dialog_subject)
+        val fromText = dialogView.findViewById<TextView>(R.id.dialog_from)
+        val typeText = dialogView.findViewById<TextView>(R.id.dialog_type)
+        val messageText = dialogView.findViewById<TextView>(R.id.dialog_message)
+        val closeButton = dialogView.findViewById<Button>(R.id.dialog_close_button)
+
+        subjectText.text = notification.subject
+        fromText.text = "FROM: ${notification.from}"
+        typeText.text = "TYPE: ${notification.type.capitalize()}"
+        messageText.text = notification.message
+
+        val dialog = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .create()
+
+        closeButton.setOnClickListener { dialog.dismiss() }
+
+        dialog.show()
     }
+
+
 }

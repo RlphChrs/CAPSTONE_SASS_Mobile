@@ -106,10 +106,22 @@ class StudentAuthViewModel(private val repository: StudentAuthRepository) : View
         }
     }
 
-
-
-
-
-
+    fun saveFcmTokenToBackend(token: String, fcmToken: String, onSuccess: () -> Unit, onError: (String) -> Unit) {
+        viewModelScope.launch {
+            try {
+                val response = apiService.updateFcmToken(
+                    token = "Bearer $token",
+                    fcmToken = mapOf("fcmToken" to fcmToken)
+                )
+                if (response.isSuccessful) {
+                    onSuccess()
+                } else {
+                    onError("Failed with code ${response.code()}")
+                }
+            } catch (e: Exception) {
+                onError("Exception: ${e.message}")
+            }
+        }
+    }
 
 }

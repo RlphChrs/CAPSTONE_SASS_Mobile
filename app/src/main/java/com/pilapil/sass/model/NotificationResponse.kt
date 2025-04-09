@@ -6,7 +6,8 @@ data class NotificationResponse(
     val from: String = "",
     val school: String = "",
     val seen: Boolean = false,
-    val timestamp: Timestamp? = null
+    val timestamp: Timestamp? = null,
+    val type: String = ""
 ) {
     data class Timestamp(
         val _seconds: Long = 0,

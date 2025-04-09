@@ -18,7 +18,6 @@ class NotificationViewModel : ViewModel() {
 
     private val apiService = ApiService.create()
 
-    // ✅ Corrected function signature to accept Context
     fun fetchNotifications(context: Context) {
         val token = SessionManager(context).getAuthToken()
         val bearerToken = "Bearer $token"

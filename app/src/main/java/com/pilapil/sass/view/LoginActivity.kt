@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.messaging.FirebaseMessaging
 import com.pilapil.sass.MainActivity
 import com.pilapil.sass.R
 import com.pilapil.sass.api.ApiService
@@ -70,8 +71,32 @@ class LoginActivity : AppCompatActivity() {
                     sessionManager.saveStudentId(studentId)
                     sessionManager.saveSchoolId(schoolName)
 
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
+                    // ✅ Retrieve and save FCM token BEFORE navigating to MainActivity
+                    FirebaseMessaging.getInstance().token
+                        .addOnSuccessListener { fcmToken ->
+                            Log.d("✅ FCM", "Token: $fcmToken")
+
+                            authViewModel.saveFcmTokenToBackend(
+                                token,
+                                fcmToken,
+                                onSuccess = {
+                                    Log.d("✅ FCM", "Token saved, proceeding to MainActivity")
+                                    startActivity(Intent(this, MainActivity::class.java))
+                                    finish()
+                                },
+                                onError = { errMsg ->
+                                    Log.e("❌ FCM", errMsg)
+                                    Toast.makeText(this, "Logged in but failed to save FCM token", Toast.LENGTH_LONG).show()
+                                    startActivity(Intent(this, MainActivity::class.java))
+                                    finish()
+                                }
+                            )
+                        }
+                        .addOnFailureListener {
+                            Log.e("❌ FCM", "FCM token retrieval failed")
+                            startActivity(Intent(this, MainActivity::class.java)) // fallback
+                            finish()
+                        }
                 }
             ) { error ->
                 Toast.makeText(this, error, Toast.LENGTH_SHORT).show()

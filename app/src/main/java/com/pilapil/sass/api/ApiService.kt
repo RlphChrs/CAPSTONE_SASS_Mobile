@@ -2,6 +2,7 @@ package com.pilapil.sass.api
 
 import com.pilapil.sass.model.*
 import okhttp3.MultipartBody
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -15,9 +16,9 @@ import retrofit2.http.Part
 import retrofit2.http.Path
 import android.telecom.Call as Call1
 
-const val BASE_URL = "http://192.168.1.180:3000/api/"
+const val BASE_URL = "http://192.168.1.122:3000/api/"
 //const val BASE_URL = "http://192.168.1.52:3000/api/" // Office IP
-const val PYTHON_BASE_URL = "http://192.168.1.180:8000/"
+const val PYTHON_BASE_URL = "http://192.168.1.122:8000/"
 //const val PYTHON_BASE_URL = "http://192.168.1.52:8000/" // Office Chatbot Backend
 
 interface ApiService {
@@ -88,6 +89,13 @@ interface ApiService {
         @Path("studentId") studentId: String,
         @Header("Authorization") token: String
     ): Response<StudentBookingsResponse>
+
+    @POST("student/report/submit")
+    suspend fun submitReport(
+        @Body reportRequest: ReportRequest,
+        @Header("Authorization") token: String
+    ): Response<ResponseBody>
+
 
 
     companion object {
