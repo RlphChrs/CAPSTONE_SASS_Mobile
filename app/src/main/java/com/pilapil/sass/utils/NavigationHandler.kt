@@ -15,6 +15,7 @@ class NavigationHandler(
     private val navigationView: NavigationView
 ) {
     fun setupNavigation() {
+        // ✅ Handle Menu Items
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_new_chat -> {
@@ -61,6 +62,16 @@ class NavigationHandler(
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
+        }
+
+        // ✅ Make the Drawer Header Clickable → Open Profile Fragment
+        val headerView = navigationView.getHeaderView(0)
+        headerView.setOnClickListener {
+            context.supportFragmentManager.beginTransaction()
+                .replace(R.id.main_fragment_container, Profile())
+                .addToBackStack(null)
+                .commit()
+            drawerLayout.closeDrawer(GravityCompat.START)
         }
     }
 }

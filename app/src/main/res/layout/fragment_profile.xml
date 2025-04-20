@@ -23,7 +23,6 @@
             android:gravity="center_vertical"
             android:layout_marginTop="16dp">
 
-            <!-- Profile Picture -->
             <ImageView
                 android:id="@+id/profile_picture"
                 android:layout_width="64dp"
@@ -32,7 +31,6 @@
                 android:contentDescription="@string/content_desc_profile_pic"
                 android:padding="4dp" />
 
-            <!-- User Info -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -66,37 +64,38 @@
                     android:textColor="@android:color/darker_gray" />
             </LinearLayout>
 
-            <!-- Edit Button -->
             <Button
                 android:id="@+id/btn_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/primaryColor"
+                android:background="@drawable/login_signin"
                 android:text="@string/edit"
                 android:textColor="@android:color/white"
                 android:layout_marginStart="8dp" />
         </LinearLayout>
 
-        <!-- Editable Fields -->
+        <TextView
+            android:id="@+id/tv_edit_section_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Your Profile"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
+
         <EditText
             android:id="@+id/et_first_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_first_name"
             android:inputType="textPersonName"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="0dp"
             android:background="@drawable/input_field_background"
             android:padding="12dp" />
 
-        <EditText
-            android:id="@+id/et_middle_initial"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_middle_initial"
-            android:inputType="text"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/input_field_background"
-            android:padding="12dp" />
+        <!-- Removed middle initial -->
 
         <EditText
             android:id="@+id/et_last_name"
@@ -118,23 +117,22 @@
             android:background="@drawable/input_field_background"
             android:padding="12dp" />
 
-        <!-- Year Dropdown -->
         <Spinner
             android:id="@+id/spinner_year"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:padding="8dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/input_field_background" />
 
-        <!-- Role Dropdown -->
-        <Spinner
-            android:id="@+id/spinner_role"
+        <EditText
+            android:id="@+id/et_section"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:padding="8dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/input_field_background" />
 
-        <!-- Email Address Section -->
         <TextView
             android:id="@+id/tv_email_section_title"
             android:layout_width="match_parent"

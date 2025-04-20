@@ -2,6 +2,7 @@ package com.pilapil.sass.api
 
 import com.pilapil.sass.model.*
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
@@ -12,6 +13,7 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
 import android.telecom.Call as Call1
@@ -50,8 +52,11 @@ interface ApiService {
     @POST("student/uploads/upload")
     suspend fun uploadStudentFile(
         @Header("Authorization") token: String,
-        @Part file: MultipartBody.Part
+        @Part file: MultipartBody.Part,
+        @Part("reason") reason: RequestBody
     ): FileUploadResponse
+
+
 
     @GET("student/notifications/responses")
     suspend fun getStudentNotifications(
@@ -95,6 +100,19 @@ interface ApiService {
         @Body reportRequest: ReportRequest,
         @Header("Authorization") token: String
     ): Response<ResponseBody>
+
+    @GET("students/profile/{studentId}")
+    suspend fun getStudentProfile(
+        @Path("studentId") studentId: String,
+        @Header("Authorization") token: String,
+    ): Response<StudentProfile>
+
+    @PUT("students/update-profile")
+    suspend fun updateStudentProfile(
+        @Header("Authorization") token: String,
+        @Body updateData: Map<String, @JvmSuppressWildcards Any?>
+    ): Response<ApiResponse>
+
 
 
 

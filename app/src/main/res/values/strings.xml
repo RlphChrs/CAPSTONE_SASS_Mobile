@@ -25,7 +25,7 @@
     <string name="menu_icon">Menu Icon</string>
     <string name="profile_icon">Profile Icon</string>
     <string name="app_logo1">App Logo</string>
-    <string name="by_chatting_with_me_you_accept_to_our_terms_and_conditions_as_well_as_our_privacy_and_cookie_policies">By chatting with me, you accept to our Terms and Conditions as well as our Privacy and Cookie Policies.</string>
+    <string name="by_chatting_with_me_you_accept_to_our_terms_and_conditions_as_well_as_our_privacy_and_cookie_policies">By having a conversation with SASS, you accept to our Terms and Conditions as well as our Privacy and Cookie Policies.</string>
     <string name="report">Report</string>
     <string name="book_appointment">Book Appointment</string>
     <string name="ask_questions">Ask Questions</string>

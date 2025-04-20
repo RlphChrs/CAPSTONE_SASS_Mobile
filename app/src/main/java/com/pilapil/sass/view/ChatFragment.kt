@@ -33,6 +33,10 @@ class ChatFragment : Fragment() {
     private lateinit var chatManager: ChatManager
     private lateinit var sessionManager: SessionManager
 
+    private var hasHiddenHeader = false
+    private var headerContainer: LinearLayout? = null
+    private lateinit var chatRecyclerView: RecyclerView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,11 +58,24 @@ class ChatFragment : Fragment() {
 
         val inputMessage = view.findViewById<EditText>(R.id.et_message)
         val sendButton = view.findViewById<ImageButton>(R.id.btn_send_message)
-        val chatRecyclerView = view.findViewById<RecyclerView>(R.id.chatRecyclerView)
+        chatRecyclerView = view.findViewById(R.id.chatRecyclerView)
+        headerContainer = view.findViewById(R.id.header_container)
 
         chatAdapter = MessageAdapter(chatMessages)
-        chatRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val layoutManager = LinearLayoutManager(requireContext())
+        layoutManager.stackFromEnd = true
+        chatRecyclerView.layoutManager = layoutManager
         chatRecyclerView.adapter = chatAdapter
+
+        // 🟢 Detect scroll to top to show header again
+        chatRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val firstVisibleItem = layoutManager.findFirstVisibleItemPosition()
+                if (firstVisibleItem == 0 && hasHiddenHeader && headerContainer?.visibility == View.GONE) {
+                    showHeader()
+                }
+            }
+        })
 
         sendButton.setOnClickListener {
             val message = inputMessage.text.toString()
@@ -78,8 +95,31 @@ class ChatFragment : Fragment() {
     private fun addMessageToChat(chatMessage: ChatMessage) {
         chatMessages.add(chatMessage)
         chatAdapter.notifyItemInserted(chatMessages.size - 1)
-        view?.findViewById<RecyclerView>(R.id.chatRecyclerView)
-            ?.scrollToPosition(chatMessages.size - 1)
+        chatRecyclerView.scrollToPosition(chatMessages.size - 1)
+
+        if (!hasHiddenHeader && headerContainer != null) {
+            hasHiddenHeader = true
+            headerContainer?.animate()
+                ?.translationY(-headerContainer!!.height.toFloat())
+                ?.alpha(0f)
+                ?.setDuration(300)
+                ?.withEndAction {
+                    headerContainer?.visibility = View.GONE
+                }
+                ?.start()
+        }
+    }
+
+    private fun showHeader() {
+        headerContainer?.visibility = View.VISIBLE
+        headerContainer?.translationY = -headerContainer!!.height.toFloat()
+        headerContainer?.alpha = 0f
+        headerContainer?.animate()
+            ?.translationY(0f)
+            ?.alpha(1f)
+            ?.setDuration(300)
+            ?.withEndAction { hasHiddenHeader = false }
+            ?.start()
     }
 
     override fun onDestroyView() {
@@ -88,4 +128,3 @@ class ChatFragment : Fragment() {
         chatManager.saveBufferedMessages()
     }
 }
-

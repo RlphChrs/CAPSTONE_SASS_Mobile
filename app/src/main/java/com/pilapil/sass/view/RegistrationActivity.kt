@@ -1,11 +1,15 @@
 package com.pilapil.sass.view
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.pilapil.sass.R
 import com.pilapil.sass.api.ApiService
 import com.pilapil.sass.model.Student
@@ -46,12 +50,12 @@ class RegistrationActivity : AppCompatActivity() {
             val repeatPassword = repeatPasswordInput.text.toString().trim()
             val termsAccepted = termsCheckbox.isChecked
 
-            // 🔍 Debugging logs
+            //  Debugging logs
             Log.d("Registration", "Password: '$password'")
             Log.d("Registration", "Repeat Password: '$repeatPassword'")
             Log.d("Registration", "Terms Checkbox Checked: $termsAccepted")
 
-            // ✅ Input validation
+            //  Input validation
             if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || repeatPassword.isEmpty() || schoolName.isEmpty()) {
                 Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -87,15 +91,35 @@ class RegistrationActivity : AppCompatActivity() {
                     finish()
                 },
                 onError = { error ->
-                    Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+                    if (error.contains("school", ignoreCase = true) && error.contains("not registered", ignoreCase = true)) {
+                        showTopSnackbar("🚫 School not registered.\n   Please contact your school administrator.")
+                    } else {
+                        Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+                    }
                 }
             )
-
-
         }
 
         loginText.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
+    }
+
+    private fun showTopSnackbar(message: String) {
+        val rootView = findViewById<ViewGroup>(android.R.id.content).getChildAt(0)
+        val snackbar = Snackbar.make(rootView, message, Snackbar.LENGTH_LONG)
+
+        val snackbarView = snackbar.view
+        val params = snackbarView.layoutParams as FrameLayout.LayoutParams
+        params.gravity = Gravity.TOP
+        snackbarView.layoutParams = params
+
+        snackbarView.setBackgroundColor(Color.parseColor("#D32F2F")) // Red background
+        val textView = snackbarView.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
+        textView.setTextColor(Color.WHITE)
+        textView.textSize = 14f
+        textView.maxLines = 5
+
+        snackbar.show()
     }
 }

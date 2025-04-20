@@ -6,14 +6,15 @@ import android.widget.Toast
 import com.example.sass.model.SubmissionFile
 import com.example.sass.utils.FileUtils
 import com.pilapil.sass.api.ApiService
-import com.pilapil.sass.model.FileSubmissionRequest
 import com.pilapil.sass.utils.SessionManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
 object SubmissionRepository {
@@ -39,35 +40,35 @@ object SubmissionRepository {
                 val fileRequestBody = file.asRequestBody("application/pdf".toMediaTypeOrNull())
                 val filePart = MultipartBody.Part.createFormData("File", file.name, fileRequestBody)
 
+                // ✅ Add reason as plain text part
+                val reasonPart: RequestBody = reason.toRequestBody("text/plain".toMediaTypeOrNull())
+
                 val apiService = ApiService.create()
 
-                val uploadResponse = apiService.uploadStudentFile("Bearer $token", filePart)
-                val fileUrl = uploadResponse.fileUrl
-                val fileName = fileUrl.substringAfterLast("/")
+                val response = apiService.uploadStudentFile("Bearer $token", filePart, reasonPart)
 
-                val metadata = FileSubmissionRequest(
-                    fileUrl = fileUrl,
-                    fileName = fileName,
-                    reason = reason
-                )
+                // ✅ Safely access backend response values
+                val fileUrl = response.fileUrl ?: ""
+                val fileName = response.fileName ?: file.name
 
-                val response = apiService.submitFile("Bearer $token", metadata)
-
-                if (response.isSuccessful) {
-                    showToast(context, "Submission successful!")
-                    onSuccess()
-                } else {
-                    val errorMsg = response.errorBody()?.string() ?: "Unknown error"
-                    showToast(context, "Submission failed: $errorMsg")
+                if (fileUrl.isBlank()) {
+                    Log.e("SubmissionRepository", "❌ fileUrl is blank after upload.")
+                    showToast(context, "Failed to upload file. Try again.")
+                    return@launch
                 }
 
+                Log.d("SubmissionRepository", "📄 Uploaded fileUrl: $fileUrl")
+                Log.d("SubmissionRepository", "📄 Uploaded fileName: $fileName")
+
+                showToast(context, "Submission successful!")
+                onSuccess()
+
             } catch (e: Exception) {
-                Log.e("SubmissionRepository", "Error submitting file", e)
+                Log.e("SubmissionRepository", "❌ Error submitting file", e)
                 showToast(context, "Failed to submit file: ${e.message}")
             }
         }
     }
-
 
     private fun showToast(context: Context, message: String) {
         CoroutineScope(Dispatchers.Main).launch {
