@@ -3,10 +3,8 @@ package com.pilapil.sass.view
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.messaging.FirebaseMessaging
@@ -38,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
         val passwordInput = findViewById<EditText>(R.id.et_password)
         val loginButton = findViewById<Button>(R.id.btn_sign_in)
         val registerText = findViewById<TextView>(R.id.tv_create_account)
+        val progressBar = findViewById<ProgressBar>(R.id.progress_bar) // ⬅ ProgressBar reference
 
         registerText.setOnClickListener {
             startActivity(Intent(this, RegistrationActivity::class.java))
@@ -52,6 +51,9 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            progressBar.visibility = View.VISIBLE
+            loginButton.isEnabled = false
+
             authViewModel.loginStudent(this, email, password,
                 onSuccess = onSuccess@{ token, studentId, schoolName ->
                     Log.d("LoginDebug", "Token: $token")
@@ -59,6 +61,8 @@ class LoginActivity : AppCompatActivity() {
                     Log.d("LoginDebug", "School Name: $schoolName")
 
                     if (token.isEmpty() || studentId.isEmpty() || schoolName.isEmpty()) {
+                        progressBar.visibility = View.GONE
+                        loginButton.isEnabled = true
                         Toast.makeText(
                             this,
                             "Login failed: Missing required data",
@@ -99,6 +103,8 @@ class LoginActivity : AppCompatActivity() {
                         }
                 }
             ) { error ->
+                progressBar.visibility = View.GONE
+                loginButton.isEnabled = true
                 Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
             }
         }
