@@ -1,10 +1,29 @@
 package com.pilapil.sass.api
 
-import com.pilapil.sass.model.*
+import com.pilapil.sass.model.ApiResponse
+import com.pilapil.sass.model.AvailableTimeResponse
+import com.pilapil.sass.model.BookedAppointmentsResponse
+import com.pilapil.sass.model.BookingRequest
+import com.pilapil.sass.model.BookingResponse
+import com.pilapil.sass.model.ChatHistoryResponse
+import com.pilapil.sass.model.ChatRequest
+import com.pilapil.sass.model.ChatResponse
+import com.pilapil.sass.model.ChatSaveRequest
+import com.pilapil.sass.model.FileSubmissionRequest
+import com.pilapil.sass.model.FileUploadResponse
+import com.pilapil.sass.model.LoginRequest
+import com.pilapil.sass.model.LoginResponse
+import com.pilapil.sass.model.NotificationResponseWrapper
+import com.pilapil.sass.model.ReportRequest
+import com.pilapil.sass.model.Student
+import com.pilapil.sass.model.StudentBookingsResponse
+import com.pilapil.sass.model.StudentProfile
+import com.pilapil.sass.model.SubmissionResponse
 import okhttp3.MultipartBody
+import okhttp3.OkHttpClient
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
-import retrofit2.Call
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,7 +35,7 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
-import android.telecom.Call as Call1
+import java.util.concurrent.TimeUnit
 
 const val BASE_URL = "http://192.168.1.122:3000/api/"
 //const val BASE_URL = "http://192.168.1.52:3000/api/" // Office IP
@@ -133,11 +152,34 @@ interface PythonApiService {
 
     companion object {
         fun create(): PythonApiService {
+            val logging = HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            }
+
+            val client = OkHttpClient.Builder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .addInterceptor(logging)
+                .build()
+
             return Retrofit.Builder()
                 .baseUrl(PYTHON_BASE_URL)
+                .client(client) // ⏱️ Apply the custom timeout and logger
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(PythonApiService::class.java)
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+

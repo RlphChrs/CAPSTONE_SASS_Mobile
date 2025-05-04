@@ -67,7 +67,7 @@ class ChatFragment : Fragment() {
         chatRecyclerView.layoutManager = layoutManager
         chatRecyclerView.adapter = chatAdapter
 
-        // 🟢 Detect scroll to top to show header again
+        //  Detect scroll to top to show header again
         chatRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val firstVisibleItem = layoutManager.findFirstVisibleItemPosition()
@@ -99,28 +99,34 @@ class ChatFragment : Fragment() {
 
         if (!hasHiddenHeader && headerContainer != null) {
             hasHiddenHeader = true
+            headerContainer?.post {
+                headerContainer?.animate()
+                    ?.translationY(-headerContainer!!.height.toFloat())
+                    ?.alpha(0f)
+                    ?.setDuration(300)
+                    ?.withEndAction {
+                        headerContainer?.visibility = View.GONE
+                    }
+                    ?.start()
+            }
+        }
+
+    }
+
+    private fun showHeader() {
+        headerContainer?.post {
+            headerContainer?.visibility = View.VISIBLE
+            headerContainer?.translationY = -headerContainer!!.height.toFloat()
+            headerContainer?.alpha = 0f
             headerContainer?.animate()
-                ?.translationY(-headerContainer!!.height.toFloat())
-                ?.alpha(0f)
+                ?.translationY(0f)
+                ?.alpha(1f)
                 ?.setDuration(300)
-                ?.withEndAction {
-                    headerContainer?.visibility = View.GONE
-                }
+                ?.withEndAction { hasHiddenHeader = false }
                 ?.start()
         }
     }
 
-    private fun showHeader() {
-        headerContainer?.visibility = View.VISIBLE
-        headerContainer?.translationY = -headerContainer!!.height.toFloat()
-        headerContainer?.alpha = 0f
-        headerContainer?.animate()
-            ?.translationY(0f)
-            ?.alpha(1f)
-            ?.setDuration(300)
-            ?.withEndAction { hasHiddenHeader = false }
-            ?.start()
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
