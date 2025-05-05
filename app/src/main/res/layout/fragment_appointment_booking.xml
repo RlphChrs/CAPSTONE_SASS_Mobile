@@ -25,289 +25,245 @@
             android:padding="8dp"
             android:fontFamily="@font/poppins_regulars">
 
-            <!-- ✅ Everything else stays the same (date, time pickers, etc.) -->
-
-            <!-- Title -->
             <TextView
                 android:id="@+id/title_pick_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pick_date_time"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginTop="16dp"/>
 
-        <!-- Date Picker -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/date_picker_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_date"
+
+            <CalendarView
+                android:id="@+id/calendarView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/select_date"
-                android:focusable="false"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
 
-        <!-- Calendar View -->
-
-        <!-- Choose Time Section -->
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp" />
-
-        <TextView
-            android:id="@+id/title_choose_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/choose_time"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"/>
-
-        <!-- Time Picker -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <!-- FROM Time -->
             <TextView
+                android:id="@+id/title_choose_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/from"
-                android:textSize="14sp"
-                android:textColor="@android:color/black"/>
+                android:text="@string/choose_time"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"/>
 
+            <!-- 🕐 TIME PICKER REPLACED START -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@android:color/transparent"
-                android:padding="4dp"
-                android:gravity="center_vertical">
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="8dp">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/clock_logo"
-                    android:layout_marginRight="8dp"
-                    tools:ignore="ContentDescription" />
+                <!-- FROM Time -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/from"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"/>
 
-                <EditText
-                    android:id="@+id/fromHour"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:hint="@string/hour_hint"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:textAlignment="center"
-                    android:background="@null"
-                    android:focusable="false"
-                    android:padding="8dp"/>
+                <!-- FROM Time -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@android:color/transparent"
+                    android:padding="4dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/clock_logo"
+                        android:contentDescription="@null" />
+
+                    <Spinner
+                        android:id="@+id/fromHourSpinner"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:spinnerMode="dropdown"/>
+
+                    <TextView
+                        android:id="@+id/fromHourLabel"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="--"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="8dp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/fromMinuteStatic"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="00"
+                        android:textSize="16sp"
+                        android:background="@null"
+                        android:textColor="@android:color/black"
+                        android:padding="8dp"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/toggleAmPm_from"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/buttonAM_from"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/am"
+                            android:textColor="@color/white"
+                            android:background="@drawable/login_signin"
+                            android:button="@null"
+                            android:padding="12dp"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:id="@+id/buttonPM_from"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pm"
+                            android:textColor="@color/black"
+                            android:background="@drawable/white_bg"
+                            android:button="@null"
+                            android:padding="12dp"
+                            android:textSize="12sp" />
+                    </RadioGroup>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/colon"
-                    android:textSize="18sp"
+                    android:text="@string/to"
+                    android:textSize="14sp"
                     android:textColor="@android:color/black"/>
 
-                <EditText
-                    android:id="@+id/fromMinute"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:hint="@string/minute_hint"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:textAlignment="center"
-                    android:background="@null"
-                    android:focusable="false"
-                    android:padding="8dp"/>
-
-                <com.google.android.material.button.MaterialButtonToggleGroup
-                    android:id="@+id/toggleAmPm_from"
-                    android:layout_width="wrap_content"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="15dp"
-                    app:singleSelection="true">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/buttonAM_from"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:textSize="12sp"
-                        android:paddingHorizontal="8dp"
-                        android:paddingVertical="4dp"
-                        android:text="@string/am"
-                        android:textColor="@color/white"
-                        android:backgroundTint="@color/darkBlue"
-                        app:cornerRadius="6dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/buttonPM_from"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:text="@string/pm"
-                        android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
-                        android:textSize="12sp"
-                        android:paddingHorizontal="8dp"
-                        android:paddingVertical="4dp"
-                        app:cornerRadius="8dp"/>
-                </com.google.android.material.button.MaterialButtonToggleGroup>
-
-            </LinearLayout>
-
-            <!-- TO Time -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/to"
-                android:textSize="14sp"
-                android:textColor="@android:color/black"
-                android:layout_marginTop="12dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="4dp"
-                android:background="@android:color/transparent"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/clock_logo"
-                    android:layout_marginRight="8dp"
-                    tools:ignore="ContentDescription" />
-
-                <EditText
-                    android:id="@+id/toHour"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:hint="@string/hour_hint"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:textAlignment="center"
-                    android:background="@null"
-                    android:focusable="false"
-                    android:padding="8dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- TO Time -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/colon"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black"/>
+                    android:orientation="horizontal"
+                    android:padding="4dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center">
 
-                <EditText
-                    android:id="@+id/toMinute"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:hint="@string/minute_hint"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:textAlignment="center"
-                    android:background="@null"
-                    android:focusable="false"
-                    android:padding="8dp"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/clock_logo"
+                        android:contentDescription="@null" />
 
-                <com.google.android.material.button.MaterialButtonToggleGroup
-                    android:id="@+id/buttonAM_to"
-                    android:layout_width="wrap_content"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="15dp"
-                    app:singleSelection="true">
+                    <Spinner
+                        android:id="@+id/toHourSpinner"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:spinnerMode="dropdown"/>
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/buttonPM_to"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:textSize="12sp"
-                        android:paddingHorizontal="8dp"
-                        android:paddingVertical="4dp"
-                        android:text="@string/am"
-                        android:textColor="@color/white"
-                        android:backgroundTint="@color/darkBlue"
-                        app:cornerRadius="6dp"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/buttonPM"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:text="@string/pm"
+                    <TextView
+                        android:id="@+id/toHourLabel"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="--"
+                        android:gravity="center"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
-                        android:textSize="12sp"
-                        android:paddingHorizontal="8dp"
-                        android:paddingVertical="4dp"
-                        app:cornerRadius="8dp"/>
-                </com.google.android.material.button.MaterialButtonToggleGroup>
+                        android:layout_marginStart="8dp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/toMinuteStatic"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="00"
+                        android:textSize="16sp"
+                        android:background="@null"
+                        android:textColor="@android:color/black"
+                        android:padding="8dp"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/toggleAmPm_to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/buttonAM_to"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/am"
+                            android:textColor="@color/white"
+                            android:background="@drawable/login_signin"
+                            android:button="@null"
+                            android:padding="12dp"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:id="@+id/buttonPM_to"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pm"
+                            android:textColor="@color/black"
+                            android:background="@drawable/white_bg"
+                            android:button="@null"
+                            android:padding="12dp"
+                            android:textSize="12sp" />
+                    </RadioGroup>
+                </LinearLayout>
 
             </LinearLayout>
-        </LinearLayout>
+            <!-- 🕐 TIME PICKER REPLACED END -->
 
-        <!-- Description -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/description">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Date & Time Label -->
-        <TextView
-            android:id="@+id/date_time_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/date_time_label"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="16dp"/>
-
-        <!-- Date & Time Input Field -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/selected_date_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/select_date_time"
-            android:layout_marginTop="8dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_date_time"
+            <!-- Description -->
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="false"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="16dp"
+                android:hint="@string/description">
 
-        <!-- Add Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_add"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/add_button"
-            android:backgroundTint="@color/darkBlue"
-            android:textColor="@color/white"
-            android:layout_marginTop="16dp"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_confirm_selection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirm Selection"
+                android:background="@drawable/login_signin"
+                android:backgroundTint="@color/darkBlue"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"/>
 
 
         </LinearLayout>

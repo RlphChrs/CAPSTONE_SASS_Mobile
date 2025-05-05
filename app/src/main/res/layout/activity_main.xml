@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- ✅ Common Header -->
+        <!-- Common Header -->
         <include
             android:id="@+id/main_header"
             layout="@layout/header_common"
@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- ✅ Fragment Container (For Chat, History, Profile, etc.) -->
+        <!-- Fragment Container (For Chat, History, Profile, etc.) -->
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/main_fragment_container"
             android:name="androidx.fragment.app.Fragment"
@@ -34,7 +34,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- ✅ Navigation Drawer -->
+    <!--  Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"

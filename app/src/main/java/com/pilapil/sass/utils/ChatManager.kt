@@ -10,6 +10,8 @@ import com.pilapil.sass.model.ChatResponse
 import com.pilapil.sass.viewModel.StudentAuthViewModel
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
+import java.io.IOException
+import java.net.SocketTimeoutException
 
 class ChatManager(
     private val context: Context,
@@ -33,23 +35,20 @@ class ChatManager(
 
         lifecycleScope.launch {
             try {
-                /*  testing
-                val chatRequest = ChatRequest(schoolId, studentId, userMessage)
-
-                val botResponseText = "🤖 This is a test response from the mock chatbot."
-                val botMessage = ChatMessage(botResponseText, isUser = false)
-                onMessageReceived(botMessage)
-                messageBuffer.add(botMessage)
-                */
                 val chatRequest = ChatRequest(schoolId, studentId, userMessage)
                 val response: ChatResponse = apiService.sendMessage(chatRequest)
                 val botResponseText = response.botResponse ?: "No response from chatbot"
                 val botMessage = ChatMessage(botResponseText, isUser = false)
                 onMessageReceived(botMessage)
                 messageBuffer.add(botMessage)
-
+            } catch (e: SocketTimeoutException) {
+                onError("The chatbot is taking too long to respond. Please try again.")
+            } catch (e: IOException) {
+                onError("Network error. Please check your internet connection.")
+            } catch (e: HttpException) {
+                onError("Server error: ${e.message}")
             } catch (e: Exception) {
-                onError("Error: ${e.message}")
+                onError("Unexpected error: ${e.message}")
             }
         }
     }

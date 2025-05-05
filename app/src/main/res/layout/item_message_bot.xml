@@ -2,11 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fontFamily="@font/poppins_regulars"
-    android:padding="8dp">
-
+    android:padding="8dp"
+    android:fontFamily="@font/poppins_regulars">
 
     <ImageView
         android:id="@+id/bot_image"
@@ -17,22 +16,26 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="20dp"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-    <!-- Message Text -->
     <TextView
         android:id="@+id/message_text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_message_bot"
         android:padding="12dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
+        android:maxWidth="0dp"
+        android:ellipsize="none"
+        android:singleLine="false"
+        android:inputType="textMultiLine"
+        android:lineSpacingExtra="4dp"
         android:text="@string/bot_message"
         app:layout_constraintStart_toEndOf="@id/bot_image"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="5dp"/>
-
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.sass.view.SubmissionFragment
 import com.google.android.material.navigation.NavigationView
 import com.pilapil.sass.R
 import com.pilapil.sass.view.*
@@ -14,6 +15,7 @@ class NavigationHandler(
     private val navigationView: NavigationView
 ) {
     fun setupNavigation() {
+        // ✅ Handle Menu Items
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_new_chat -> {
@@ -60,6 +62,16 @@ class NavigationHandler(
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
+        }
+
+        // ✅ Make the Drawer Header Clickable → Open Profile Fragment
+        val headerView = navigationView.getHeaderView(0)
+        headerView.setOnClickListener {
+            context.supportFragmentManager.beginTransaction()
+                .replace(R.id.main_fragment_container, Profile())
+                .addToBackStack(null)
+                .commit()
+            drawerLayout.closeDrawer(GravityCompat.START)
         }
     }
 }

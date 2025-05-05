@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/submissionFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.SubmissionFragment">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,15 +26,20 @@
             <EditText
                 android:id="@+id/editReason"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="150dp"
                 android:hint="@string/reason_for_submitting"
+                android:gravity="top"
+                android:textSize="16sp"
+                android:autofillHints="text"
+                android:inputType="textMultiLine"
+                android:padding="12dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/submission_bg"
                 tools:ignore="Autofill,TextFields,VisualLintTextFieldSize" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/submission_bg"
                 android:gravity="center"
@@ -45,43 +48,54 @@
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
+                    android:layout_marginTop="20dp"
                     android:src="@drawable/cloud_add"
                     tools:ignore="ContentDescription" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="@string/choose_a_file_ndocs_pdf"
                     android:textAlignment="center" />
 
                 <Button
                     android:id="@+id/btnBrowse"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:backgroundTint="@color/Indigo"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/gray"
+                    android:background="@drawable/browse_file_button"
                     android:text="@string/browse_btn"
                     android:textColor="@android:color/white"/>
-
             </LinearLayout>
+
+            <!-- New TextView added above RecyclerView -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selected File"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="16dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerFiles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="8dp" />
 
             <Button
                 android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
+                android:background="@drawable/browse_file_submit_button"
                 android:layout_height="55dp"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/Indigo"
+                android:textColor="@color/white"
                 android:text="@string/browse_submit"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
                 tools:ignore="VisualLintButtonSize" />
+
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

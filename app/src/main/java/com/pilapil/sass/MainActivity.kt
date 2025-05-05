@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        // ✅ UI Components
+        //  UI Components
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.navigation_view)
         menuIcon = findViewById(R.id.menu_icon)

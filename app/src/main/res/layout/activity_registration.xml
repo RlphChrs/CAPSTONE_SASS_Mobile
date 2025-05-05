@@ -184,51 +184,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_repeat_password" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn_register"
         android:layout_width="346dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/Indigo"
         android:text="@string/register"
+        android:background="@drawable/login_signin"
         android:textColor="@android:color/white"
-        app:cornerRadius="5dp"
         app:layout_constraintTop_toBottomOf="@id/cb_terms_conditions"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="VisualLintButtonSize"
         />
 
-    <TextView
-        android:id="@+id/tv_or_register_with"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/or_register_with"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_register"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Google Sign-In Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_google_register"
-        android:layout_width="346dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/white"
-        android:text="@string/sign_in_with_google"
-        android:textColor="@color/black"
-        app:cornerRadius="4dp"
-        app:icon="@drawable/google"
-        app:iconGravity="textStart"
-        app:iconSize="24dp"
-        app:iconTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_or_register_with"
-        tools:ignore="VisualLintButtonSize" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
