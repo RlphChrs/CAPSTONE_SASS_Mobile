@@ -5,13 +5,14 @@ data class Student(
     val email: String,
     val password: String,
     val repeatPassword: String,
-    val firstName: String,
-    val lastName: String,
-    val schoolName: String, // ✅ Add this
+    val firstName: String = "",  // now optional / ignored
+    val lastName: String = "",   // now optional / ignored
+    val schoolName: String,
     val role: String = "Student",
     val createdAt: String,
     val termsAccepted: Boolean
 )
+
 
 data class LoginRequest(
     val email: String,

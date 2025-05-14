@@ -93,24 +93,14 @@ class ChatFragment : Fragment() {
     }
 
     private fun addMessageToChat(chatMessage: ChatMessage) {
+        // 👇 Remove header when first message is added
+        if (chatMessages.isEmpty() && headerContainer?.visibility != View.GONE) {
+            headerContainer?.visibility = View.GONE
+        }
+
         chatMessages.add(chatMessage)
         chatAdapter.notifyItemInserted(chatMessages.size - 1)
         chatRecyclerView.scrollToPosition(chatMessages.size - 1)
-
-        if (!hasHiddenHeader && headerContainer != null) {
-            hasHiddenHeader = true
-            headerContainer?.post {
-                headerContainer?.animate()
-                    ?.translationY(-headerContainer!!.height.toFloat())
-                    ?.alpha(0f)
-                    ?.setDuration(300)
-                    ?.withEndAction {
-                        headerContainer?.visibility = View.GONE
-                    }
-                    ?.start()
-            }
-        }
-
     }
 
     private fun showHeader() {
@@ -126,7 +116,6 @@ class ChatFragment : Fragment() {
                 ?.start()
         }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

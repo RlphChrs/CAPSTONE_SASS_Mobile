@@ -16,189 +16,180 @@
         android:paddingBottom="32dp"
         android:fontFamily="@font/poppins_regulars">
 
-    <TextView
-        android:id="@+id/tv_register_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="@string/create_account"
-        android:textColor="@android:color/white"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_register_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="@string/create_account"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.151"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_register_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/enter_your_name_email_and_password_for_sign_up"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.362"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_register_title" />
+        <TextView
+            android:id="@+id/tv_register_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/enter_your_name_email_and_password_for_sign_up"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.362"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_register_title" />
 
-    <!-- Input Fields -->
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="312dp"
+            android:text="@string/sign_up"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_register_subtitle" />
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="312dp"
-        android:text="@string/sign_up"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_register_subtitle" />
+        <TextView
+            android:id="@+id/tv_already_have_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="112dp"
+            android:text="@string/already_have_account"
+            android:textColor="@color/linkBlue"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_register_subtitle" />
 
-    <TextView
-        android:id="@+id/tv_already_have_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="112dp"
-        android:text="@string/already_have_account"
-        android:textColor="@color/linkBlue"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_register_subtitle" />
+        <!-- ID Number Field -->
+        <EditText
+            android:id="@+id/et_student_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="ID Number"
+            android:background="@drawable/input_field_background_login"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_already_have_account"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="32dp"
+            tools:ignore="Autofill,TextFields,VisualLintTextFieldSize" />
 
-    <EditText
-        android:id="@+id/et_first_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/first_name"
-        android:background="@drawable/input_field_background_login"
-        android:padding="12dp"
-        android:textColor="@color/white"
-        android:textColorHint="@android:color/darker_gray"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_already_have_account"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="32dp"
-        tools:ignore="Autofill,TextFields,VisualLintTextFieldSize" />
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:background="@drawable/input_field_background_login"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/et_student_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="32dp"
+            tools:ignore="Autofill,VisualLintTextFieldSize" />
 
-    <EditText
-        android:id="@+id/et_last_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/last_name"
-        android:background="@drawable/input_field_background_login"
-        android:padding="12dp"
-        android:textColor="@color/white"
-        android:textColorHint="@android:color/darker_gray"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/et_first_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="32dp"
-        tools:ignore="Autofill,TextFields,VisualLintTextFieldSize" />
+        <EditText
+            android:id="@+id/et_school_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_school_name"
+            android:textColor="@color/white"
+            android:background="@drawable/input_field_background_login"
+            android:padding="12dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/et_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="32dp"
+            tools:ignore="Autofill,VisualLintTextFieldSize" />
 
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/email"
-        android:background="@drawable/input_field_background_login"
-        android:padding="12dp"
-        android:textColor="@color/white"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@android:color/darker_gray"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/et_last_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="32dp"
-        tools:ignore="Autofill,VisualLintTextFieldSize" />
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/passwordregistration"
+            android:background="@drawable/input_field_background_login"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:inputType="textPassword"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/et_school_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="32dp"
+            tools:ignore="Autofill,VisualLintTextFieldSize" />
 
-    <EditText
-        android:id="@+id/et_school_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_school_name"
-        android:textColor="@color/white"
-        android:background="@drawable/input_field_background_login"
-        android:padding="12dp"
-        android:textColorHint="@android:color/darker_gray"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/et_email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="32dp"
-        tools:ignore="Autofill,VisualLintTextFieldSize" />
+        <EditText
+            android:id="@+id/et_repeat_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/repeat_password"
+            android:background="@drawable/input_field_background_login"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/et_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="32dp"
+            tools:ignore="Autofill,VisualLintTextFieldSize" />
 
+        <CheckBox
+            android:id="@+id/cb_terms_conditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/i_agree_to_terms_and_conditions"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.184"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_repeat_password" />
 
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/passwordregistration"
-        android:background="@drawable/input_field_background_login"
-        android:padding="12dp"
-        android:textColor="@color/white"
-        android:inputType="textPassword"
-        android:textColorHint="@android:color/darker_gray"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/et_school_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="32dp"
-        tools:ignore="Autofill,VisualLintTextFieldSize" />
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="346dp"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/register"
+            android:background="@drawable/login_signin"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/cb_terms_conditions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="VisualLintButtonSize" />
 
-    <EditText
-        android:id="@+id/et_repeat_password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/repeat_password"
-        android:background="@drawable/input_field_background_login"
-        android:padding="12dp"
-        android:inputType="textPassword"
-        android:textColor="@color/white"
-        android:textColorHint="@android:color/darker_gray"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/et_password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="32dp"
-        tools:ignore="Autofill,VisualLintTextFieldSize" />
-
-    <!-- Terms and Conditions Checkbox -->
-
-    <!-- Register Button -->
-    <CheckBox
-        android:id="@+id/cb_terms_conditions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/i_agree_to_terms_and_conditions"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_repeat_password" />
-
-    <Button
-        android:id="@+id/btn_register"
-        android:layout_width="346dp"
-        android:layout_height="60dp"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/register"
-        android:background="@drawable/login_signin"
-        android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/cb_terms_conditions"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="VisualLintButtonSize"
-        />
-
+        <ProgressBar
+            android:id="@+id/registrationProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:theme="@style/Widget.AppCompat.ProgressBar"
+            app:layout_constraintTop_toBottomOf="@id/btn_register"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
