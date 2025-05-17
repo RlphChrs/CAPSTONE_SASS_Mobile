@@ -3,6 +3,7 @@ package com.pilapil.sass.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pilapil.sass.api.PythonApiService
+import com.pilapil.sass.model.ChatApiMessage
 import com.pilapil.sass.model.ChatRequest
 import com.pilapil.sass.model.ChatResponse
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,10 +20,17 @@ class ChatViewModel : ViewModel() {
     fun sendMessage(schoolId: String, studentId: String, message: String) {
         viewModelScope.launch {
             try {
+                // ✅ Example hardcoded chat history — replace this with actual chat log later
+                val chatHistory = listOf(
+                    ChatApiMessage(role = "user", content = "who can apply for uniform exemption"),
+                    ChatApiMessage(role = "assistant", content = "Working students with valid employment can apply.")
+                )
+
                 val chatRequest = ChatRequest(
                     schoolId = schoolId.trim(),
                     studentId = studentId.trim(),
-                    userInput = message.trim()
+                    userInput = message.trim(),
+                    chat_history = chatHistory
                 )
 
                 // ✅ Debugging: Print the request data
@@ -43,5 +51,4 @@ class ChatViewModel : ViewModel() {
             }
         }
     }
-
 }

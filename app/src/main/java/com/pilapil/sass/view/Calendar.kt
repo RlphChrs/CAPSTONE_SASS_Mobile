@@ -4,15 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.pilapil.sass.R
 import com.pilapil.sass.databinding.FragmentCalendarBinding
 import java.text.SimpleDateFormat
-import java.util.*
 import java.util.Calendar
-import java.util.Locale
-
-
+import java.util.*
 
 class Calendar : Fragment() {
 
@@ -36,9 +34,22 @@ class Calendar : Fragment() {
 
         // When a date is selected from CalendarView
         binding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val calendar = Calendar.getInstance()
-            calendar.set(year, month, dayOfMonth)
-            selectedDate = dateFormat.format(calendar.time)
+            val selectedCal = Calendar.getInstance()
+            selectedCal.set(year, month, dayOfMonth)
+
+            val dayOfWeek = selectedCal.get(Calendar.DAY_OF_WEEK)
+
+            if (dayOfWeek == Calendar.SUNDAY) {
+                Toast.makeText(requireContext(), "There's no office during Sundays", Toast.LENGTH_SHORT).show()
+                // Reset to previous valid selected date
+                val previousDate = dateFormat.parse(selectedDate)
+                previousDate?.let {
+                    binding.calendarView.date = it.time
+                }
+                return@setOnDateChangeListener
+            }
+
+            selectedDate = dateFormat.format(selectedCal.time)
 
             // Navigate to ScheduleFragment
             val fragment = ScheduleFragment()

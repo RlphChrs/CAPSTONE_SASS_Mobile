@@ -17,6 +17,7 @@ class Report : Fragment() {
 
     private lateinit var reportViewModel: ReportViewModel
     private lateinit var sessionManager: SessionManager
+    private lateinit var progressBar: View
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,14 +37,12 @@ class Report : Fragment() {
         val inputDescription = view.findViewById<EditText>(R.id.inputDescription)
         val checkboxConfirm = view.findViewById<CheckBox>(R.id.checkboxConfirm)
         val btnDone = view.findViewById<Button>(R.id.btnDone)
+        progressBar = view.findViewById(R.id.progressBar)
 
         sessionManager = SessionManager(requireContext())
 
-        // Initialize API and Repository
         val apiService = ApiService.create()
         val repository = ReportRepository(apiService)
-
-        // Initialize ViewModel manually
         reportViewModel = ReportViewModel(repository)
 
         btnDone.setOnClickListener {
@@ -70,7 +69,10 @@ class Report : Fragment() {
 
             val report = ReportRequest(name, idNumber, reason, description)
 
+            progressBar.visibility = View.VISIBLE
+
             reportViewModel.submitReport(token, report) { success ->
+                progressBar.visibility = View.GONE
                 if (success) {
                     Toast.makeText(requireContext(), "Report submitted successfully!", Toast.LENGTH_SHORT).show()
                     inputName.text.clear()

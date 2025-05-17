@@ -4,9 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.LifecycleCoroutineScope
 import com.pilapil.sass.api.PythonApiService
-import com.pilapil.sass.model.ChatMessage
-import com.pilapil.sass.model.ChatRequest
-import com.pilapil.sass.model.ChatResponse
+import com.pilapil.sass.model.*
 import com.pilapil.sass.viewModel.StudentAuthViewModel
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -35,12 +33,29 @@ class ChatManager(
 
         lifecycleScope.launch {
             try {
-                val chatRequest = ChatRequest(schoolId, studentId, userMessage)
+                // ✅ Convert ChatMessage to ChatApiMessage for backend context
+                val chatHistory = messageBuffer.map {
+                    ChatApiMessage(
+                        role = if (it.isUser) "user" else "assistant",
+                        content = it.message
+                    )
+                }
+
+                val chatRequest = ChatRequest(
+                    schoolId = schoolId,
+                    studentId = studentId,
+                    userInput = userMessage,
+                    chat_history = chatHistory
+                )
+
+                println("📤 Sending ChatRequest with full history: $chatRequest")
+
                 val response: ChatResponse = apiService.sendMessage(chatRequest)
                 val botResponseText = response.botResponse ?: "No response from chatbot"
                 val botMessage = ChatMessage(botResponseText, isUser = false)
                 onMessageReceived(botMessage)
                 messageBuffer.add(botMessage)
+
             } catch (e: SocketTimeoutException) {
                 onError("The chatbot is taking too long to respond. Please try again.")
             } catch (e: IOException) {
@@ -96,5 +111,4 @@ class ChatManager(
             }
         }
     }
-
 }

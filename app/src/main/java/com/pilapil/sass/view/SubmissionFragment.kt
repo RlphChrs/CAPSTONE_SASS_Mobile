@@ -26,6 +26,7 @@ class SubmissionFragment : Fragment() {
     private lateinit var editReason: EditText
     private lateinit var btnSubmit: Button
     private lateinit var btnBrowse: Button
+    private lateinit var progressBar: View
 
     private val filePickerLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -51,16 +52,17 @@ class SubmissionFragment : Fragment() {
         editReason = view.findViewById(R.id.editReason)
         btnSubmit = view.findViewById(R.id.btnSubmit)
         btnBrowse = view.findViewById(R.id.btnBrowse)
+        progressBar = view.findViewById(R.id.progressBar)
 
-        adapter = SubmissionAdapter(viewModel.selectedFiles) { file ->
+        adapter = SubmissionAdapter { file ->
             viewModel.removeFile(file)
         }
 
         recyclerFiles.layoutManager = LinearLayoutManager(requireContext())
         recyclerFiles.adapter = adapter
 
-        viewModel.filesLiveData.observe(viewLifecycleOwner) {
-            adapter.notifyDataSetChanged()
+        viewModel.filesLiveData.observe(viewLifecycleOwner) { files ->
+            adapter.updateFiles(files)
         }
 
         btnBrowse.setOnClickListener {
@@ -74,7 +76,10 @@ class SubmissionFragment : Fragment() {
             } else if (viewModel.selectedFiles.isEmpty()) {
                 Toast.makeText(requireContext(), "Please select a file.", Toast.LENGTH_SHORT).show()
             } else {
+                progressBar.visibility = View.VISIBLE
+
                 viewModel.submitFiles(requireContext(), reason) {
+                    progressBar.visibility = View.GONE
                     editReason.setText("")
                     viewModel.clearForm()
                 }

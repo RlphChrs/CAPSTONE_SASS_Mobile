@@ -10,9 +10,16 @@ import com.example.sass.model.SubmissionFile
 import com.pilapil.sass.R
 
 class SubmissionAdapter(
-    private val files: List<SubmissionFile>,
     private val onRemove: (SubmissionFile) -> Unit
 ) : RecyclerView.Adapter<SubmissionAdapter.ViewHolder>() {
+
+    private val files = mutableListOf<SubmissionFile>()
+
+    fun updateFiles(newFiles: List<SubmissionFile>) {
+        files.clear()
+        files.addAll(newFiles)
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvFileName: TextView = itemView.findViewById(R.id.tvFileName)
@@ -20,7 +27,8 @@ class SubmissionAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.submission_item, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.submission_item, parent, false)
         return ViewHolder(view)
     }
 
@@ -30,5 +38,5 @@ class SubmissionAdapter(
         holder.btnRemove.setOnClickListener { onRemove(file) }
     }
 
-    override fun getItemCount() = files.size
+    override fun getItemCount(): Int = files.size
 }

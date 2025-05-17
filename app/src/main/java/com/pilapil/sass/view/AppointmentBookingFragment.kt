@@ -19,9 +19,8 @@ import com.pilapil.sass.model.BookingRequest
 import com.pilapil.sass.utils.SessionManager
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
-import java.util.*
 import java.util.Calendar
-import java.util.Date
+import java.util.*
 
 class AppointmentBookingFragment : Fragment() {
 
@@ -50,9 +49,22 @@ class AppointmentBookingFragment : Fragment() {
         calendar.time = formatter.parse(selectedDate)!!
         binding.calendarView.date = calendar.timeInMillis
 
+        // 🔒 Prevent selecting Sundays
         binding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            calendar.set(year, month, dayOfMonth)
-            selectedDate = formatter.format(calendar.time)
+            val clickedCalendar = Calendar.getInstance()
+            clickedCalendar.set(year, month, dayOfMonth)
+
+            val dayOfWeek = clickedCalendar.get(Calendar.DAY_OF_WEEK)
+
+            if (dayOfWeek == Calendar.SUNDAY) {
+                Toast.makeText(requireContext(), "There's no office during Sundays", Toast.LENGTH_SHORT).show()
+                val previousDate = formatter.parse(selectedDate)
+                previousDate?.let {
+                    binding.calendarView.date = it.time
+                }
+            } else {
+                selectedDate = formatter.format(clickedCalendar.time)
+            }
         }
 
         setupTimePickers()

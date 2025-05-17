@@ -10,6 +10,7 @@ import com.pilapil.sass.utils.SessionManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -25,7 +26,7 @@ object SubmissionRepository {
         val studentId = sessionManager.getStudentId()
 
         if (token.isNullOrEmpty() || studentId.isNullOrEmpty()) {
-            Toast.makeText(context, "Authentication error. Please log in again.", Toast.LENGTH_SHORT).show()
+            showToast(context, "Authentication error. Please log in again.")
             return
         }
 
@@ -39,15 +40,11 @@ object SubmissionRepository {
 
                 val fileRequestBody = file.asRequestBody("application/pdf".toMediaTypeOrNull())
                 val filePart = MultipartBody.Part.createFormData("File", file.name, fileRequestBody)
-
-                // ✅ Add reason as plain text part
                 val reasonPart: RequestBody = reason.toRequestBody("text/plain".toMediaTypeOrNull())
 
                 val apiService = ApiService.create()
-
                 val response = apiService.uploadStudentFile("Bearer $token", filePart, reasonPart)
 
-                // ✅ Safely access backend response values
                 val fileUrl = response.fileUrl ?: ""
                 val fileName = response.fileName ?: file.name
 
@@ -60,8 +57,10 @@ object SubmissionRepository {
                 Log.d("SubmissionRepository", "📄 Uploaded fileUrl: $fileUrl")
                 Log.d("SubmissionRepository", "📄 Uploaded fileName: $fileName")
 
-                showToast(context, "Submission successful!")
-                onSuccess()
+                withContext(Dispatchers.Main) {
+                    showToast(context, "Submission successful!")
+                    onSuccess() // ✅ Run safely on main thread
+                }
 
             } catch (e: Exception) {
                 Log.e("SubmissionRepository", "❌ Error submitting file", e)
