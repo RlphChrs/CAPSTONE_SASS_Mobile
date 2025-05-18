@@ -14,20 +14,23 @@ class ProfileViewModel(private val repository: StudentProfileRepository) : ViewM
     private val _updateResult = MutableLiveData<Boolean>()
     val updateResult: LiveData<Boolean> = _updateResult
 
-    fun fetchProfile(studentId: String, token: String) {
+    fun fetchProfile(token: String) {
         viewModelScope.launch {
             try {
-                val response = repository.getProfile(studentId, token)
+                val response = repository.getProfile(token)
                 if (response.isSuccessful) {
                     _studentProfile.postValue(response.body())
                 } else {
+                    Log.e("VIEWMODEL", "❌ HTTP ${response.code()}")
                     _studentProfile.postValue(null)
                 }
             } catch (e: Exception) {
+                Log.e("VIEWMODEL", "❌ Exception: ${e.message}")
                 _studentProfile.postValue(null)
             }
         }
     }
+
 
     private fun extractStudentIdFromToken(token: String): String? {
         return try {
@@ -57,11 +60,9 @@ class ProfileViewModel(private val repository: StudentProfileRepository) : ViewM
 
                 // ✅ Re-fetch profile if updated
                 if (response.isSuccessful) {
-                    val studentId = extractStudentIdFromToken(token)
-                    if (studentId != null) {
-                        fetchProfile(studentId, token)
-                    }
+                    fetchProfile(token)
                 }
+
             } catch (e: Exception) {
                 Log.e("VIEWMODEL", "❌ Update failed: ${e.localizedMessage}")
                 _updateResult.postValue(false)

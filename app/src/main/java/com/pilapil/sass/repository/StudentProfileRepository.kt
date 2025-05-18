@@ -8,9 +8,10 @@ import retrofit2.Response
 
 class StudentProfileRepository(private val api: ApiService) {
 
-    suspend fun getProfile(studentId: String, token: String): Response<StudentProfile> {
-        return api.getStudentProfile(studentId, token)
+    suspend fun getProfile(token: String): Response<StudentProfile> {
+        return api.getStudentProfile(token)
     }
+
 
 
     suspend fun updateProfile(token: String, data: Map<String, Any?>): Response<ApiResponse> {

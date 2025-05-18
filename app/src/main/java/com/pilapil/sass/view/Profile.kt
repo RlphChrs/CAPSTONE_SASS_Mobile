@@ -23,14 +23,12 @@ class Profile : Fragment() {
     private lateinit var tvUserId: TextView
     private lateinit var tvUserName: TextView
     private lateinit var tvUserEmail: TextView
-    private lateinit var etFirstName: EditText
-    private lateinit var etLastName: EditText
-    private lateinit var etCourse: EditText
-    private lateinit var spinnerYear: Spinner
-    private lateinit var etSection: EditText
+    private lateinit var tvFirstName: TextView
+    private lateinit var tvLastName: TextView
+    private lateinit var tvCourse: TextView
+    private lateinit var tvYear: TextView
+    private lateinit var tvSection: TextView
     private lateinit var btnEdit: Button
-
-    private val yearOptions = arrayOf("1", "2", "3", "4", "5")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,26 +39,28 @@ class Profile : Fragment() {
 
         sessionManager = SessionManager(requireContext())
         val repo = StudentProfileRepository(RetrofitInstance.apiService)
-        viewModel = ViewModelProvider(requireActivity(), ProfileViewModelFactory(repo)).get(ProfileViewModel::class.java)
+        viewModel = ViewModelProvider(
+            requireActivity(),
+            ProfileViewModelFactory(repo)
+        ).get(ProfileViewModel::class.java)
 
         // UI References
         tvUserId = view.findViewById(R.id.tv_user_id)
         tvUserName = view.findViewById(R.id.tv_user_name)
         tvUserEmail = view.findViewById(R.id.tv_user_email)
-        etFirstName = view.findViewById(R.id.et_first_name)
-        etLastName = view.findViewById(R.id.et_last_name)
-        etCourse = view.findViewById(R.id.et_course)
-        etSection = view.findViewById(R.id.et_section)
-        spinnerYear = view.findViewById(R.id.spinner_year)
+        tvFirstName = view.findViewById(R.id.tv_first_name)
+        tvLastName = view.findViewById(R.id.tv_last_name)
+        tvCourse = view.findViewById(R.id.tv_course)
+        tvYear = view.findViewById(R.id.tv_year)
+        tvSection = view.findViewById(R.id.tv_section)
         btnEdit = view.findViewById(R.id.btn_edit)
-
-        spinnerYear.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, yearOptions)
 
         val studentId = sessionManager.getStudentId()
         val token = sessionManager.getAuthToken()
 
-        if (!studentId.isNullOrEmpty() && !token.isNullOrEmpty()) {
-            viewModel.fetchProfile(studentId, "Bearer $token")
+        if (!token.isNullOrEmpty()) {
+            viewModel.fetchProfile("Bearer $token")
+
         } else {
             Toast.makeText(requireContext(), "Missing token or student ID", Toast.LENGTH_SHORT).show()
         }
@@ -68,8 +68,8 @@ class Profile : Fragment() {
         setupObservers()
 
         btnEdit.setOnClickListener {
-            val dialog = EditProfileDialogFragment()
-            dialog.show(parentFragmentManager, "EditProfileDialog")
+            // You can later implement a dialog or image picker for profile photo update
+            Toast.makeText(requireContext(), "Feature: Change profile picture", Toast.LENGTH_SHORT).show()
         }
 
         return view
@@ -82,23 +82,11 @@ class Profile : Fragment() {
                 tvUserName.text = "${profile.firstName} ${profile.lastName}"
                 tvUserEmail.text = profile.email
 
-                // Fill and disable fields
-                etFirstName.setText(profile.firstName)
-                etFirstName.isEnabled = false
-
-
-                etLastName.setText(profile.lastName)
-                etLastName.isEnabled = false
-
-                etCourse.setText(profile.course ?: "")
-                etCourse.isEnabled = false
-
-                etSection.setText(profile.section ?: "")
-                etSection.isEnabled = false
-
-                val yearIndex = yearOptions.indexOf(profile.year?.toString() ?: "1")
-                spinnerYear.setSelection(if (yearIndex >= 0) yearIndex else 0)
-                spinnerYear.isEnabled = false
+                tvFirstName.text = profile.firstName
+                tvLastName.text = profile.lastName
+                tvCourse.text = profile.course ?: "-"
+                tvSection.text = profile.section ?: "-"
+                tvYear.text = profile.year?.toString() ?: "-"
 
                 // ✅ Update Navigation Drawer Header
                 val navigationView = requireActivity().findViewById<NavigationView>(R.id.navigation_view)
@@ -119,9 +107,10 @@ class Profile : Fragment() {
 
                 val studentId = sessionManager.getStudentId()
                 val token = sessionManager.getAuthToken()
-                if (!studentId.isNullOrEmpty() && !token.isNullOrEmpty()) {
-                    viewModel.fetchProfile(studentId, "Bearer $token")
+                if (!token.isNullOrEmpty()) {
+                    viewModel.fetchProfile("Bearer $token")
                 }
+
             }
         }
     }

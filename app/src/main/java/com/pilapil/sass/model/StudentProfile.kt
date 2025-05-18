@@ -1,12 +1,12 @@
 package com.pilapil.sass.model
 
 data class StudentProfile(
-    val firstName: String,
-    val lastName: String,
-    val middleInitial: String? = null,
-    val course: String? = null,
-    val section: String? = null,
-    val year: Int? = null,
-    val email: String,
-    val role: String? = null
+    val studentId: String = "",
+    val firstName: String = "",
+    val lastName: String = "",
+    val year: Int = 1,
+    val course: String = "",
+    val section: String = "",
+    val email: String = ""
 )
+

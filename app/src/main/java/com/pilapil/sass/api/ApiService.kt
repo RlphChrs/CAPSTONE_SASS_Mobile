@@ -123,11 +123,11 @@ interface ApiService {
         @Header("Authorization") token: String
     ): Response<ResponseBody>
 
-    @GET("students/profile/{studentId}")
+    @GET("students/profile")
     suspend fun getStudentProfile(
-        @Path("studentId") studentId: String,
-        @Header("Authorization") token: String,
+        @Header("Authorization") token: String
     ): Response<StudentProfile>
+
 
     @PUT("students/update-profile")
     suspend fun updateStudentProfile(

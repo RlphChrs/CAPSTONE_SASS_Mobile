@@ -74,82 +74,72 @@
                 android:layout_marginStart="8dp" />
         </LinearLayout>
 
+        <!-- Read-Only Section Label -->
         <TextView
-            android:id="@+id/tv_edit_section_label"
+            android:id="@+id/tv_profile_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit Your Profile"
+            android:text="Student Information"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp" />
 
-        <EditText
-            android:id="@+id/et_first_name"
+        <!-- Read-Only Profile Info -->
+        <TextView
+            android:id="@+id/tv_first_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_first_name"
-            android:inputType="textPersonName"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/input_field_background"
-            android:padding="12dp" />
-
-        <!-- Removed middle initial -->
-
-        <EditText
-            android:id="@+id/et_last_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_last_name"
-            android:inputType="textPersonName"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/input_field_background"
-            android:padding="12dp" />
-
-        <EditText
-            android:id="@+id/et_course"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_course"
-            android:inputType="text"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/input_field_background"
-            android:padding="12dp" />
-
-        <Spinner
-            android:id="@+id/spinner_year"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:text="First Name"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
             android:padding="8dp"
-            android:layout_marginTop="8dp"
             android:background="@drawable/input_field_background" />
 
-        <EditText
-            android:id="@+id/et_section"
+        <TextView
+            android:id="@+id/tv_last_name"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
+            android:text="Last Name"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
             android:padding="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/input_field_background" />
 
         <TextView
-            android:id="@+id/tv_email_section_title"
+            android:id="@+id/tv_course"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/my_email"
+            android:text="Course"
             android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_field_background" />
 
-        <Button
-            android:id="@+id/btn_add_email"
+        <TextView
+            android:id="@+id/tv_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_email"
-            android:backgroundTint="@color/lightBlue"
-            android:textColor="@color/primaryColor"
-            android:layout_marginTop="16dp" />
+            android:text="Year Level"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_field_background" />
+
+        <TextView
+            android:id="@+id/tv_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Section"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_field_background" />
+
     </LinearLayout>
 </ScrollView>
