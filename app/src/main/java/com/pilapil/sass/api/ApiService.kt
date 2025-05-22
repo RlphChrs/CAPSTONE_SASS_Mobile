@@ -39,11 +39,11 @@ import java.util.concurrent.TimeUnit
 
 //const val BASE_URL = "http://192.168.1.122:3000/api/"
 //const val BASE_URL = "http://192.168.1.52:3000/api/" // Office IP
-const val BASE_URL = "http://192.168.1.122:3000/api/"
+const val BASE_URL = "http://192.168.167.252:3000/api/"
 
 //const val PYTHON_BASE_URL = "http://192.168.1.122:8000/"
 //const val PYTHON_BASE_URL = "http://192.168.1.52:8000/" // Office Chatbot Backend
-const val PYTHON_BASE_URL = "http://192.168.1.122:8000/"
+const val PYTHON_BASE_URL = "http://192.168.167.252:8000/"
 
 interface ApiService {
     @POST("students/register/student")
