@@ -1,1 +1,1 @@
-Rule No.1 : Basta naay changes i pull ayg kalimot
+Rule No.1 : If theres changes dont forget to pull
